@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Application/Templates/css/style.css">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <header>
+
+            <ul>
+
+                <li>
+                    {{Nome ou logo da marca}}
+                </li>
+
+                <li>
+
+                    <!-- 
+                        Lembrar de fazer o tratamento de cada entrada (input) no PHP para evitar SQL injection
+                    -->
+
+                    <form action="">
+
+                        <input type="text" name="buscar" class="buscar" placeholder="Produto">
+                        <button type="submit" class="buscar" >Buscar</button>
+                        
+                    </form>
+
+                </li>
+
+                
+
+                
+            </ul>
+
+            
+
+        </header>
+
+        <nav>
+            
+            <ul>
+                <li> 
+                    <a href="">Home</a>
+                </li>
+
+                <li>
+                    <a href="">Produtos</a>
+                </li>
+
+                <li>
+                    <a href="">Contato</a>
+                </li>
+
+                <li>
+                    <a href="">Entrar</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <section>
+
+            {{Conteúdo}}
+            <br>
+            {{Conteúdo}}
+            <br>
+            {{Conteúdo}}
+            <br>
+            {{Conteúdo}}
+
+        </section>
+
+        <footer>
+            <ul>
+                <li>
+                    <a href="">Facebook</a>
+                </li>
+
+                <li>
+                    <a href="">Instagram</a>
+                </li>
+
+            </ul>
+        </footer>
+        
+    </body>
+    
+</html>

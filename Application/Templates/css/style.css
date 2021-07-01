@@ -1,0 +1,55 @@
+body {
+
+    background-color: #4eb2ff91;
+    margin: 0px;    
+    text-align: center;
+    margin: auto;        
+
+}
+
+
+header {
+    
+    background-color: white;
+    display: inline;
+    
+}
+
+.buscar {
+
+    border-radius: 10px; 
+    border-color: #26827a;   
+
+}
+
+section {
+    
+    background-color: white;
+
+}
+
+
+
+
+
+a {
+
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+
+    text-decoration: underline;
+}
+
+ul li {
+
+    list-style: none;
+    display: inline-flex;
+    
+}
+
+
+
+
