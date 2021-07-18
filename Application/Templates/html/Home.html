@@ -3,77 +3,71 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Application/Templates/css/style.css">
-        <title>Document</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+        <link rel="stylesheet" href="Application/Templates/css/style.css">  
+
+        <title>Home</title>
     </head>
 
     <body>
 
         <header>
 
-            <ul>
 
-                <li>
-                    {{Nome ou logo da marca}}
+            <nav>
+              
+              <ul>
+                  <li class="nav-esquerda"> 
+                      <a href="">Home</a>
+                  </li>
+
+                  <li class="nav-esquerda">
+                      <a href="">Produtos</a>
+                  </li>
+
+                  <li class="nav-esquerda">
+                      <a href="">Contato</a>
+                  </li>
+
+                  <li class="nav-direita">
+                      <a href="">Entrar</a>
+                  </li>
+
+                  <li class="nav-direita">
+                    <a href="">Cadastre-se</a>
                 </li>
 
-                <li>
-
-                    <!-- 
-                        Lembrar de fazer o tratamento de cada entrada (input) no PHP para evitar SQL injection
-                    -->
-
-                    <form action="">
-
-                        <input type="text" name="buscar" class="buscar" placeholder="Produto">
-                        <button type="submit" class="buscar" >Buscar</button>
-                        
-                    </form>
-
-                </li>
-
-                
-
-                
-            </ul>
-
-            
+              </ul>
+          </nav>      
+                               
 
         </header>
 
-        <nav>
-            
-            <ul>
-                <li> 
-                    <a href="">Home</a>
-                </li>
-
-                <li>
-                    <a href="">Produtos</a>
-                </li>
-
-                <li>
-                    <a href="">Contato</a>
-                </li>
-
-                <li>
-                    <a href="">Entrar</a>
-                </li>
-
-            </ul>
-        </nav>
-
+        
         <section>
 
-            {{Conteúdo}}
-            <br>
-            {{Conteúdo}}
-            <br>
-            {{Conteúdo}}
-            <br>
-            {{Conteúdo}}
+          <div class="conteudo" id="conteudo1">
+            {{Conteudo1}}
+          </div>
 
+          <br>
+
+          <div class="conteudo" id="conteudo2">
+            {{Conteudo2}}
+          </div>
+
+          <br>
+          
+          <div class="conteudo" id="conteudo3">
+            {{Conteudo3}}
+          </div>
+
+          <br>
+          
+          <div class="conteudo" id="conteudo4">
+            {{Conteudo4}}
+          </div>
+                        
         </section>
 
         <footer>
