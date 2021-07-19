@@ -19,9 +19,7 @@
         }
 
         function load(Criteria $criteria) {
-            //instancia a instrução de SELECT
-
-            // public. foi adicionado pois estou usando o postgres 
+            //instancia a instrução de SELECT             
 
             $sql = "SELECT * FROM " . constant($this->activeRecord . '::TABLENAME');
 
