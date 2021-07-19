@@ -97,7 +97,7 @@
         function delete(Criteria $criteria) {
             $expression = $criteria->dump();
 
-            // public. foi adicionado pois estou usando o postgres 
+             
 
             $sql = "DELETE FROM " . constant($this->activeRecord . '::TABLENAME');
             if($expression) {
@@ -108,7 +108,7 @@
 
             if($conn = Transaction::get()) {
 
-                Transaction::log($sql); // registra a mensagem de log
+                //Transaction::log($sql); // registra a mensagem de log
                 $result = $conn->exec($sql); // executa a instrução de DELETE
                 return $result;
 
@@ -121,7 +121,7 @@
         function count(Criteria $criteria) {
             $expression = $criteria->dump();
 
-            // public. foi adicionado pois estou usando o postgres 
+            
 
             $sql = "SELECT count(*) FROM " . constant($this->activeRecord . '::TABLENAME');
 
