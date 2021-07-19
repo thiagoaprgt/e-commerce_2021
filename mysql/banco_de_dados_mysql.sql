@@ -37,7 +37,7 @@ create table `cadastro_do_cliente` (
 
 );
 
--- todo o símbolo aspas, ' , que for guardado dentro do banco de dados tem ser alterado para \' senão hávera erro no registro.
+-- todo o símbolo aspas, ' , que for guardado dentro do banco de dados tem ser alterado para \' senão haverá erro no registro.
 -- isso acontece para que não haja sql injection
 
 create table `cadastro_do_conteudo` (
