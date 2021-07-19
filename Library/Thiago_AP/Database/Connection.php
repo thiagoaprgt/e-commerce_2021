@@ -46,7 +46,7 @@
             $user = isset($db['user']) ? $db['user'] : NULL;
             $pass = isset($db['pass']) ? $db['pass'] : NULL;
             $name = isset($db['name']) ? $db['name'] : NULL;
-            $host = isset($db['name']) ? $db['name'] : NULL;
+            $host = isset($db['host']) ? $db['host'] : NULL;
             $type = isset($db['type']) ? $db['type'] : NULL;
             $port = isset($db['port']) ? $db['port'] : NULL;
 
@@ -61,7 +61,7 @@
 
                 case 'mysql':
                     $port = $port ? $port : '3306';
-                    $conn = new PDO("mysql:host={$host};port={$port};dbname={$name}", $user, $pass);
+                    $conn = new PDO("mysql:host={$host};port={$port};dbname={$name}", $user, $pass);     
                 break;
 
                 case 'sqlite':
