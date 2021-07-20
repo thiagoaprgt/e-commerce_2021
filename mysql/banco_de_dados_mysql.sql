@@ -44,6 +44,7 @@ create table `cadastro_do_conteudo` (
 
     `id` int(5) primary key not null auto_increment,
     `titulo` varchar(30) not null,
-    `conteudo` varchar(3000) not null
+    `conteudo` varchar(3000) not null,
+    `data_do_cadastro` date not null
 
 );

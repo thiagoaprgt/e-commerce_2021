@@ -17,23 +17,23 @@
             <nav>
               
               <ul>
-                  <li class="nav-esquerda"> 
+                  <li class="navbar"> 
                       <a href="">Home</a>
                   </li>
 
-                  <li class="nav-esquerda">
+                  <li class="navbar">
                       <a href="">Produtos</a>
                   </li>
 
-                  <li class="nav-esquerda">
+                  <li class="navbar">
                       <a href="">Contato</a>
                   </li>
 
-                  <li class="nav-direita">
+                  <li class="navbar">
                       <a href="">Entrar</a>
                   </li>
 
-                  <li class="nav-direita">
+                  <li class="navbar">
                     <a href="">Cadastre-se</a>
                 </li>
 
@@ -46,29 +46,18 @@
         
         <section>
 
-          <div class="conteudo" id="conteudo1">
-            {{content1}}
-          </div>
-
-          <br>
-
-          <div class="conteudo" id="conteudo2">
-            {{content2}}
-          </div>
-
-          <br>
-          
-          <div class="conteudo" id="conteudo3">
-            {{content3}}
-          </div>
-
-          <br>
-          
-          <div class="conteudo" id="conteudo4">
-            {{content4}}
-          </div>
+          {{section}}
                         
         </section>
+
+
+        <nav class="pagination">
+
+            <div class="page"> Pages: </div>
+             
+            {{pagination}}
+
+        </nav>
 
         <footer>
             <ul>
