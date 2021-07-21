@@ -15,12 +15,10 @@
             try 
             {
 
-
                 Transaction::open('loja');
 
 
-                /* ---------------------------------------------------------------------- */
-                
+                /* ---------------------------------------------------------------------- */                
 
 
                 // Criando uma paginação               
@@ -40,7 +38,7 @@
 
                 // limit é a quantidade de artigos que aparecem na páginas
 
-                $limit = 2;
+                $limit = 1;
 
                 $number_of_pages = $count_titles / $limit;
 
@@ -74,124 +72,76 @@
 
                 
 
-                // Concluído com sucesso a criação da parte 1 da paginação termina aqui                
+                // Concluído com sucesso a criação da parte 1 da paginação termina aqui.
 
-                /* ---------------------------------------------------------------------- */  
 
+                /* ---------------------------------------------------------------------- */ 
                
 
                 // Criando o conteúdo da tag section e parte 2 da paginação
 
-                if (empty($_GET) || $_GET['page_number'] == 0 ) {
-
-
-                    $criteria = new Criteria;
-
-                    // desc = ordem descendente ou decrescente, asc = ordem ascendente ou crescente
                 
-                    $criteria->setProperty('order', 'data_do_cadastro desc');
-                    $criteria->setProperty('limit', $limit);
-
-                    
-
-                    $repository = new Repository('Cadastro_do_conteudo');
-                    $conteudos = $repository->load($criteria);    
-
-                    if(isset($conteudos)) {
-
-                        foreach($conteudos as $conteudo) {
 
 
-                            $artigo = " {$conteudo->data_do_cadastro} <br> {$conteudo->titulo}: <br> {$conteudo->conteudo}";  
-
-                            $template = file_get_contents('Application/Templates/html/Content.html');
-
-                            $contents[] = str_replace("{{content}}", $artigo, $template); 
-
-                            
-
-                        }
-
-                        $section = '';
-
-                        foreach ($contents as $content) {
-                            
-                            $section .= $content;
-
-                        }
-                        
-
-                        $this->template = str_replace('{{section}}', $section, $home);
-                        
-
-                    }   
-
-
-
-                }else {
+                if ( isset($_GET['page_number']) && $_GET['page_number'] > 0 ) {
 
                     $pages_number = $limit * $_GET['page_number'];
-
-                    $criteria = new Criteria;
-
-                    // desc = ordem descendente ou decrescente, asc = ordem ascendente ou crescente
-
-                    // offset faz começar a seleção apartir de uma infomação
-                
-                    $criteria->setProperty('order', 'data_do_cadastro desc');
-                    $criteria->setProperty('limit', $limit);
-                    $criteria->setProperty('offset', $pages_number);
-
                     
+                }else {
 
-                    $repository = new Repository('Cadastro_do_conteudo');
-                    $conteudos = $repository->load($criteria);
-                    
-                    
-
-                    if(isset($conteudos)) {
-
-                        foreach($conteudos as $conteudo) {
-
-                            
-
-                            $artigo = " {$conteudo->data_do_cadastro} <br> {$conteudo->titulo}: <br> {$conteudo->conteudo}";  
-
-                            $template = file_get_contents('Application/Templates/html/Content.html');
-
-                            $contents[] = str_replace("{{content}}", $artigo, $template); 
-
-                            
-
-                        }
-
-                        $section = '';
-
-                        foreach ($contents as $content) {
-                            
-                            $section .= $content;
-
-                        }
-                        
-
-                        $this->template = str_replace('{{section}}', $section, $home);
-                        
-
-                    }   
-
-
-
+                    $pages_number = 0;
 
                 }
 
+
+                $criteria = new Criteria;
+
+                // desc = ordem descendente ou decrescente, asc = ordem ascendente ou crescente
+
+                // offset faz começar a seleção apartir de uma informação
+            
+                $criteria->setProperty('order', 'data_do_cadastro desc');
+                $criteria->setProperty('limit', $limit);
+                $criteria->setProperty('offset', $pages_number);                
+                
+
+                $repository = new Repository('Cadastro_do_conteudo');
+                $conteudos = $repository->load($criteria);                
+                
+
+                if(isset($conteudos)) {
+
+                    foreach($conteudos as $conteudo) {
+                        
+
+                        $artigo = " {$conteudo->data_do_cadastro} <br> {$conteudo->titulo}: <br> {$conteudo->conteudo}";  
+
+                        $template = file_get_contents('Application/Templates/html/Content.html');
+
+                        $contents[] = str_replace("{{content}}", $artigo, $template); 
+                        
+
+                    }
+
+                    $section = '';
+
+                    foreach ($contents as $content) {
+                        
+                        $section .= $content;
+
+                    }
+                    
+
+                    $this->template = str_replace('{{section}}', $section, $home);
+                    
+
+                }   
                 
 
                 // Concluído com sucesso a criação do conteúdo da tag section e paginação parte 2 
 
                 /* ---------------------------------------------------------------------- */
                 
-
-
 
                 Transaction::close();                
 
