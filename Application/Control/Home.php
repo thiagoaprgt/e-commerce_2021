@@ -43,7 +43,7 @@
                 $number_of_pages = $count_titles / $limit;
 
                 
-                // a função ceil() aredonda o resultado para o próximo inteiro acima.
+                // a função ceil() arredonda o resultado para o próximo inteiro acima.
 
                 $number_of_pages = ceil($number_of_pages);
 
