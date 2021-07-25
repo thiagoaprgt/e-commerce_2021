@@ -4,7 +4,7 @@
     use Thiago_AP\Database\Transaction;
     use Thiago_AP\Database\Criteria;
     use Thiago_AP\Database\Repository;
-    use Thiago_AP\Authentication\Authentication;
+    
 
 
     class Home extends Page {
@@ -148,6 +148,8 @@
 
                 // teste de autenticação
 
+                /*
+
                 if(isset($_GET['authentication'])) {
 
 
@@ -171,6 +173,8 @@
 
 
                 }
+
+                */
                 
 
                 // fim do teste de autenticação

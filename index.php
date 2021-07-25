@@ -1,5 +1,6 @@
 <?php
 
+    
     // Library loader
 
     require_once 'Library/Thiago_AP/Core/ClassLoader.php';
@@ -16,6 +17,7 @@
     $al = new Thiago_AP\Core\ApplicationLoader;
     $al->addDirectory('Application/Control');
     $al->addDirectory('Application/Model');
+    $al->addDirectory('Application/Authentication');
     $al->register();
     
 
@@ -48,7 +50,39 @@
 
             ob_start(); // inicia o controle de output
 
+            if(isset($_GET['authentication'])) {
+
+
+                session_start();  
+                
+                
+            
+                print_r($_SESSION);
+                
+                echo "<hr><br>";
+
+                $current_time = time();
+                echo "tempo atual : $current_time";
+
+                
+
+                $authentication = new Thiago_AP\Authentication\Authentication;
+                $authentication->login_Authentication();
+
+                
+
+
+            }
+
+
             $pagina->show(); // exibe a página
+
+            // teste de autenticação
+
+            
+            
+
+            // fim do teste de autenticação
 
             $content = ob_get_contents(); // lê conteúdo gerado
 
