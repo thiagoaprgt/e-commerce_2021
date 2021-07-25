@@ -13,7 +13,7 @@
     final class Repository {
 
         private $activeRecord; // classe manipulada pelo repositório
-
+        
         function __construct($class){
             $this->activeRecord = $class;
         }

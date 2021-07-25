@@ -4,6 +4,7 @@
     use Thiago_AP\Database\Transaction;
     use Thiago_AP\Database\Criteria;
     use Thiago_AP\Database\Repository;
+    use Thiago_AP\Authentication\Authentication;
 
 
     class Home extends Page {
@@ -143,7 +144,38 @@
                 /* ---------------------------------------------------------------------- */
                 
 
-                Transaction::close();                
+                Transaction::close(); 
+
+                // teste de autenticação
+
+                if(isset($_GET['authentication'])) {
+
+
+                    session_start();  
+                    
+                    
+                
+                    print_r($_SESSION);
+                    
+                    echo "<hr><br>";
+
+                    $current_time = time();
+                    echo "tempo atual : $current_time";
+
+                    
+
+                    $authentication = new Authentication;
+                    $authentication->login_Authentication();
+
+                    
+
+
+                }
+                
+
+                // fim do teste de autenticação
+                
+                
 
 
             } catch (Exception $e) {
@@ -158,6 +190,8 @@
 
 
         public function show() {
+
+            parent::show();
 
             echo $this->template;
 
