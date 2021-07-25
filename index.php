@@ -16,8 +16,7 @@
     require_once 'Library/Thiago_AP/Core/ApplicationLoader.php';
     $al = new Thiago_AP\Core\ApplicationLoader;
     $al->addDirectory('Application/Control');
-    $al->addDirectory('Application/Model');
-    $al->addDirectory('Application/Authentication');
+    $al->addDirectory('Application/Model');    
     $al->register();
     
 
