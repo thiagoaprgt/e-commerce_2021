@@ -71,8 +71,7 @@
 
                 session_start();
 
-                $_SESSION['nome'] = $object->nome;
-                $_SESSION['email'] = $object->email;                
+                $_SESSION['nome'] = $object->nome;                           
                 $_SESSION['cidade'] = $object->cidade;
                 $_SESSION['estado'] = $object->estado;
                 $_SESSION['bairro'] = $object->bairro;
