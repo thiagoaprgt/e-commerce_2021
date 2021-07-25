@@ -22,7 +22,7 @@ Próximas funcionalidades:
     - Carrinho de compra;
     - check out da compra;
 
-  - Sistema de autorização de acesso ao banco de dados;
+  - Sistema de autorização com diferentes níveis de acesso ao banco de dados;
   
   - CRUD funcionários;
         
