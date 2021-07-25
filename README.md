@@ -13,8 +13,15 @@ Ainda está em desenvolvimento, porém já possui algumas funcionalidades:
 Próximas funcionalidades:
 
   - Cadastro de novos clientes;  
-  - Cadastro de produtos dentro da plataforma;
-  - Sistema de vendas de cada produto cadastro;
+  - 
+  - Cadastro de produtos dentro da plataforma; 
+  
+  - Sistema de vendas de cada produto cadastro:
+  
+    - Página de produtos;
+    - Carrinho de compra;
+    - check out da compra;
+        
   
   
 
