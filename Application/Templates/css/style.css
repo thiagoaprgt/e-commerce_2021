@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
+     
 }
 
 
@@ -10,7 +11,9 @@
 
         background-color: white;            
         text-align: center; 
-        justify-content: center;   
+        justify-content: center; 
+        
+       
         
                 
     
@@ -20,7 +23,7 @@
     header, section, footer, nav {
         
         background-color: #E6CB03;
-        margin: 0px 25px 0px 25px;
+        margin: 0px 25px 0px 25px;     
         
         
         
@@ -28,12 +31,23 @@
     }
 
 
+    header{
+
+        margin-top: 25px;
+        padding-top: 10px;
+    }
+
+    
+
+    
+
+
     nav ul li {
 
         display: block;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 16px;                
-        margin: 10px 5px 0px 5px;
+        margin: 15px 5px 0px 5px;
         padding: 10px 0px 5px 0px ;
         border: solid;
         border-radius: 0px 15px 0px 15px;
@@ -45,9 +59,11 @@
 
         color: black;
         
+              
         
     }
 
+   
 
     section{
 
@@ -59,14 +75,14 @@
 
     .conteudo {
 
-        background-color: #7052FF;
-        width: 120px; 
-        height: 120px;
+        background-color: #7052FF;       
         border: solid;
-        margin: 13px;
-        font-size: 6px; 
+        margin: 30px;
+        font-size: 16px; 
 
     }
+
+    
 
     
 
@@ -80,7 +96,12 @@
         border: solid 2px;
         
         
-    }    
+    }
+    
+    
+    footer {
+        margin-bottom: 25px;
+    }
 
        
 
