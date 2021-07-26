@@ -103,11 +103,10 @@
             }
 
 
-                       
+            // finaliza o controle de output    
 
             ob_end_clean();
-            
-            // finaliza o controle de output
+                        
 
         }catch(Exception $e) {
 
