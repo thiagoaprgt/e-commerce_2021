@@ -25,10 +25,7 @@
     $loader = require_once 'vendor/autoload.php';
     $loader->register();
 
-    $template = file_get_contents("Application/Templates/html/Home.html");
-
-
-
+    
 
     if(isset($_GET['class'])) {
 
@@ -49,10 +46,12 @@
 
             ob_start(); // inicia o controle de output
 
+            session_start();
+
             if(isset($_GET['authentication'])) {
 
 
-                session_start();  
+                 
                 
                 
             
@@ -69,27 +68,52 @@
                 $authentication->login_Authentication();
 
                 
+                $pagina->show(); // exibe a página                
+                
+                $content = ob_get_contents(); // lê conteúdo gerado
 
+                
 
+                
+
+                $validation = $_SESSION['authentication'];
+
+                $content = str_replace("{authentication}", "authentication=" . $validation, $content);
+                $content = str_replace("class=Login", "class=Logout", $content);
+                $content = str_replace("{entrar}", "Logout", $content );
+
+                
+                
+
+            }else {
+
+                $pagina->show(); // exibe a página
+
+                
+
+                $content = ob_get_contents(); // lê conteúdo gerado
+
+                $content = str_replace("{authentication}", "", $content);
+                $content = str_replace("{entrar}", "Login", $content);
+
+                             
+
+                
+                
             }
 
 
-            $pagina->show(); // exibe a página
+                       
 
-            // teste de autenticação
-
+            ob_end_clean();
             
-            
-
-            // fim do teste de autenticação
-
-            $content = ob_get_contents(); // lê conteúdo gerado
-
-            ob_end_clean(); // finaliza o controle de output
+            // finaliza o controle de output
 
         }catch(Exception $e) {
 
             $content = $e->getMessage() . '<br>' . $e->getTraceAsString();
+
+            //$content = str_replace("{authentication}", "", $content);
 
         }
 

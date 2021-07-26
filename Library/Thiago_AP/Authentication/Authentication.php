@@ -6,7 +6,7 @@
 
         protected $log_in_time; 
         protected $expiration_time;
-        protected $authentication;
+        protected $authentication;        
                 
         
         public function __construct() {
@@ -65,6 +65,7 @@
                 session_start();
 
                 $_SESSION['authentication'] = $this->authentication;
+                $_SESSION['expiration_time'] = $this->expiration_time;
 
                 session_destroy();
 
@@ -89,15 +90,11 @@
                 if(isset($_SESSION) && $_GET['authentication'] == $_SESSION['authentication']) {
 
                     
-                    $get_authentication = $_SESSION['authentication'];
-
                     $this->verify_expiration();
-
-
-                    //return $get_authentication;
 
                 }else {
 
+                                       
                     session_destroy();
 
                     header("Location:index.php?class=Login");
@@ -115,7 +112,9 @@
 
         public function get_Authentication() {
 
+            
             return $this->authentication;
+                        
 
         }
 
