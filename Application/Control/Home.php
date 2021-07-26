@@ -37,7 +37,7 @@
                 $count_titles = count($count_titles);
 
 
-                // limit é a quantidade de artigos que aparecem na páginas
+                // limit é a quantidade de artigos que aparecem nas páginas
 
                 $limit = 1;
 
