@@ -17,7 +17,7 @@ Próximas funcionalidades:
   - CRUD dos produtos
 
   - CRUD dos clientes;  
-  -   
+  
   - Sistema de vendas de cada produto cadastro:
   
     - Página de produtos;
