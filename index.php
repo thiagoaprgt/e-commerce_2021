@@ -53,14 +53,17 @@
 
                  
                 
-                
+                /*
             
-                print_r($_SESSION);
-                
-                echo "<hr><br>";
+                    print_r($_SESSION);
+                    
+                    echo "<hr><br>";
 
-                $current_time = time();
-                echo "tempo atual : $current_time";
+                    $current_time = time();
+
+                    echo "tempo atual : $current_time";
+
+                */
 
                 
 
