@@ -12,10 +12,12 @@ Ainda está em desenvolvimento, porém já possui algumas funcionalidades:
 
 Próximas funcionalidades: 
 
-  - CRUD dos  clientes;  
-  
-  - CRUD dos produtos;  
-  
+  - Adicionar interação entre a tabela de títulos e a tabela de produtos através da foreign key;
+
+  - CRUD dos produtos
+
+  - CRUD dos clientes;  
+  -   
   - Sistema de vendas de cada produto cadastro:
   
     - Página de produtos;
