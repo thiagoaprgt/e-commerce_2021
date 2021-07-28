@@ -17,14 +17,12 @@ Atualmente estou desenvolvendo um e-commerce em PHP, nesse projeto já tem algum
   
   - Persistência de objetos e atualização no banco de dados foi adotado o padrão de projeto Active Record;
   
-  - Responsividade através do CSS
+  - Responsividade através do CSS;
+
+  - Listagem dos produtos cadastrados no banco de dados.
 
 
-Próximas funcionalidades: 
-
-  
-
-  - Listagem dos produtos
+Próximas funcionalidades:
 
   - Abstrair o recurso de paginação criado no Home.php para ser reaproveitado em outras classes, para não ficar repetindo o mesmo código várias vezes.
 
