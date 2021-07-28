@@ -5,7 +5,7 @@
 }
 
 
-@media (max-width: 1500px) {
+@media (max-width: 2000px) {
 
     body {
 
@@ -48,7 +48,7 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 16px;                
         margin: 15px 5px 0px 5px;
-        padding: 10px 0px 5px 0px ;
+        padding: 10px 0px 10px 0px ;
         border: solid;
         border-radius: 0px 15px 0px 15px;
         box-shadow: 1px 1px 3px #26118C;
@@ -79,6 +79,18 @@
         border: solid;
         margin: 30px;
         font-size: 16px; 
+
+    }
+
+
+    section > ul > li {
+
+        margin: 20px 10px 10px 0px;
+        text-align: left;
+        padding: 10px;        
+
+        border: solid;
+        border-radius: 5px;
 
     }
 

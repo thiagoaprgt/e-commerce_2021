@@ -37,9 +37,8 @@
                 $template_list = "";
 
                 foreach($produtos as $produto) {
-
-                    $list = "ID: \t $produto->id <br>";
-                    $list .= "Descrição: \t $produto->descricao<br>";
+                    
+                    $list = "Descrição: \t $produto->descricao<br>";
                     $list .= "Estoque: \t $produto->estoque<br>";
                     $list .= "Preço do custo: \t $produto->preco_custo<br>";
                     $list .= "Preço da venda: \t $produto->preco_venda<br>";
