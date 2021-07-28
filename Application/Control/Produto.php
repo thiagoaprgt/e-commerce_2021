@@ -12,7 +12,76 @@
 
         public function __construct() {
 
-            echo "Página em desenvolvimento";
+            try{
+
+                $this->template = file_get_contents("Application/Templates/html/Home.html");
+
+
+                Transaction::open('loja');
+
+                $criteria = new Criteria;
+               
+
+                $criteria->setProperty('order', 'id');
+
+                $repository = new Repository('Lista_dos_produtos');
+
+                $produtos = $repository->load($criteria);
+
+
+               
+                
+                $list = "";                
+                $template_list_li = file_get_contents("Application/Templates/html/Lista_dos_produtos/Lista_dos_produtos_li.html");
+
+                $template_list = "";
+
+                foreach($produtos as $produto) {
+
+                    $list = "ID: \t $produto->id <br>";
+                    $list .= "Descrição: \t $produto->descricao<br>";
+                    $list .= "Estoque: \t $produto->estoque<br>";
+                    $list .= "Preço do custo: \t $produto->preco_custo<br>";
+                    $list .= "Preço da venda: \t $produto->preco_venda<br>";
+                    $list .= "Código de barras: \t $produto->codigo_de_barras<br>";
+
+                    $template_list .= str_replace("{{produtos}}", $list, $template_list_li);
+                                     
+                    
+                }
+
+
+                $template_list_ul = file_get_contents("Application/Templates/html/Lista_dos_produtos/Lista_dos_produtos_ul.html");
+
+                $template_list_ul = str_replace("{{produtos}}", $template_list, $template_list_ul);
+
+                $this->template = str_replace("{{section}}", $template_list_ul, $this->template);
+
+                     
+                
+                
+
+
+                Transaction::close();
+
+
+                
+            }catch(Exception $e) {
+
+                print $e->getMessage();
+
+                Transaction::rollback();
+
+            }
+
+        }
+
+
+        public function show() {
+
+            parent::show();
+
+            echo $this->template;
 
         }
 

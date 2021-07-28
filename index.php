@@ -84,6 +84,7 @@
                 $content = str_replace("{authentication}", "authentication=" . $validation, $content);
                 $content = str_replace("class=Login", "class=Logout", $content);
                 $content = str_replace("{entrar}", "Logout", $content );
+                $content = str_replace("{{pagination}}", "", $content );
 
                 
                 
@@ -98,6 +99,7 @@
 
                 $content = str_replace("{authentication}", "", $content);
                 $content = str_replace("{entrar}", "Login", $content);
+                $content = str_replace("{{pagination}}", "", $content );
 
                              
 

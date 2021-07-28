@@ -9,9 +9,11 @@
 
     class Home extends Page {
 
+        protected $template;
+
         public function __construct() {
 
-            $template;
+            
 
             try 
             {
@@ -56,7 +58,7 @@
                 for ($i=0; $i < $number_of_pages ; $i++) { 
 
 
-                    $pages[$i] = file_get_contents('Application/Templates/html/Pagination.html');
+                    $pages[$i] = file_get_contents('Application/Templates/html/Pagination/Pagination.html');
                     
                     $pages[$i] = str_replace('{{page_number}}', $i, $pages[$i]);
 
@@ -66,9 +68,16 @@
                     
                 }
 
+
+                $pagination_navbar =  file_get_contents("Application/Templates/html/Pagination/Pagination_navbar.html");
+
+                $pagination_navbar = str_replace('{{pagination}}', $pagination, $pagination_navbar);
+
+
+
                 $home = file_get_contents("Application/Templates/html/Home.html");
 
-                $home = str_replace('{{pagination}}', $pagination, $home);
+                $home = str_replace('{{pagination}}', $pagination_navbar, $home);
 
 
                 

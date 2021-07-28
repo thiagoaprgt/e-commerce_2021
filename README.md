@@ -22,6 +22,12 @@ Atualmente estou desenvolvendo um e-commerce em PHP, nesse projeto já tem algum
 
 Próximas funcionalidades: 
 
+  
+
+  - Listagem dos produtos
+
+  - Abstrair o recurso de paginação criado no Home.php para ser reaproveitado em outras classes, para não ficar repetindo o mesmo código várias vezes.
+
   - Adicionar interação entre a tabela de títulos e a tabela de produtos através da foreign key;
 
   - CRUD dos produtos
