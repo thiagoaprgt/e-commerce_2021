@@ -21,10 +21,10 @@ Atualmente estou desenvolvendo um e-commerce em PHP, nesse projeto já tem algum
 
   - Listagem dos produtos cadastrados no banco de dados.
 
+  - Foi abstraído o recurso de paginação criado no Home.php para ser reaproveitado, para não ficar repetindo o mesmo código várias vezes (D.R.Y. = Don't repeat yourself). Agora a paginação se tornou uma classe da biblioteca da aplicação.
 
-Próximas funcionalidades:
 
-  - Abstrair o recurso de paginação criado no Home.php para ser reaproveitado em outras classes, para não ficar repetindo o mesmo código várias vezes.
+Próximas funcionalidades: 
 
   - Adicionar interação entre a tabela de títulos e a tabela de produtos através da foreign key;
 
