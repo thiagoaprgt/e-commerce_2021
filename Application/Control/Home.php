@@ -1,9 +1,11 @@
 <?php
     
     use Thiago_AP\Control\Page;
-    use Thiago_AP\Database\Transaction;
+    use Thiago_AP\Database\Transaction;    
     use Thiago_AP\Database\Criteria;
     use Thiago_AP\Database\Repository;
+    use Thiago_AP\Pagination\Pagination;
+    
     
 
 
@@ -11,98 +13,35 @@
 
         protected $template;
 
-        public function __construct() {
-
-            
+        public function __construct() {           
 
             try 
             {
-
-                Transaction::open('loja');
-
-
-                /* ---------------------------------------------------------------------- */                
-
-
-                // Criando uma paginação               
-                
                
-                    
-                $criteria_pagination = new Criteria;
+                // Criando uma paginação 
 
-                $criteria_pagination->setProperty('order', 'data_do_cadastro desc'); 
+                $base_template = "Application/Templates/html/Home.html";                
+                $table_class_name = 'Cadastro_do_conteudo';
+                $table_name = 'data_do_cadastro';
+                $ordination = 'desc'; 
+                $limit = 1;                
+               
+                $pagination = new Pagination($base_template, $table_class_name, $table_name, $ordination, $limit);  
+
+                // extract transforma cada elemento do vetor em variáveis isoladas onde o nome da variável é nome da chave
                 
-                $repository_pagination = new Repository('Cadastro_do_conteudo');
-
-                $count_titles = $repository_pagination->load($criteria_pagination);   
-
-                $count_titles = count($count_titles);
-
-
-                // limit é a quantidade de artigos que aparecem nas páginas
-
-                $limit = 1;
-
-                $number_of_pages = $count_titles / $limit;
-
+                extract( $pagination->get_Pagination() ); 
                 
-                // a função ceil() arredonda o resultado para o próximo inteiro acima.
-
-                $number_of_pages = ceil($number_of_pages);
-
-                
-                $pages = array();
-
-                $pagination = '';
-
-                for ($i=0; $i < $number_of_pages ; $i++) { 
-
-
-                    $pages[$i] = file_get_contents('Application/Templates/html/Pagination/Pagination.html');
-                    
-                    $pages[$i] = str_replace('{{page_number}}', $i, $pages[$i]);
-
-                    $pagination .= $pages[$i];
-
-                    
-                    
-                }
-
-
-                $pagination_navbar =  file_get_contents("Application/Templates/html/Pagination/Pagination_navbar.html");
-
-                $pagination_navbar = str_replace('{{pagination}}', $pagination, $pagination_navbar);
-
-
-
-                $home = file_get_contents("Application/Templates/html/Home.html");
-
-                $home = str_replace('{{pagination}}', $pagination_navbar, $home);
-
-
+                // variáveis extraídas: $pagination_template, $limit, $offset
                 
 
-                // Concluído com sucesso a criação da parte 1 da paginação termina aqui.
-
+                // Concluído com sucesso a criação da paginação.
 
                 /* ---------------------------------------------------------------------- */ 
-               
-
-                // Criando o conteúdo da tag section e parte 2 da paginação
 
                 
 
-
-                if ( isset($_GET['page_number']) && $_GET['page_number'] > 0 ) {
-
-                    $pages_number = $limit * $_GET['page_number'];
-                    
-                }else {
-
-                    $pages_number = 0;
-
-                }
-
+                Transaction::open('loja');                
 
                 $criteria = new Criteria;
 
@@ -112,7 +51,7 @@
             
                 $criteria->setProperty('order', 'data_do_cadastro desc');
                 $criteria->setProperty('limit', $limit);
-                $criteria->setProperty('offset', $pages_number);                
+                $criteria->setProperty('offset', $offset);                
                 
 
                 $repository = new Repository('Cadastro_do_conteudo');
@@ -126,9 +65,9 @@
 
                         $artigo = " {$conteudo->data_do_cadastro} <br> {$conteudo->titulo}: <br> {$conteudo->conteudo}";  
 
-                        $template = file_get_contents('Application/Templates/html/Content.html');
+                        $content_template = file_get_contents('Application/Templates/html/Content.html');
 
-                        $contents[] = str_replace("{{content}}", $artigo, $template); 
+                        $contents[] = str_replace("{{content}}", $artigo, $content_template); 
                         
 
                     }
@@ -142,18 +81,19 @@
                     }
                     
 
-                    $this->template = str_replace('{{section}}', $section, $home);
+                    $this->template = str_replace('{{section}}', $section, $pagination_template);
                     
 
-                }   
+                } 
                 
 
-                // Concluído com sucesso a criação do conteúdo da tag section e paginação parte 2 
-
-                /* ---------------------------------------------------------------------- */
+                // Concluído com sucesso a criação do conteúdo da tag section
                 
 
                 Transaction::close(); 
+
+                
+                
 
 
             } catch (Exception $e) {
