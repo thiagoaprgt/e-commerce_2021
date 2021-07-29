@@ -26,13 +26,13 @@ Atualmente estou desenvolvendo um e-commerce em PHP, nesse projeto já tem algum
 
 Próximas funcionalidades: 
 
-  - Adicionar interação entre a tabela de títulos e a tabela de produtos através da foreign key;
+  - CRUD dos clientes;
 
-  - CRUD dos produtos
+  - Fazer o sistema de vendas no banco de dados; 
 
-  - CRUD dos clientes;  
+  - CRUD dos produtos    
   
-  - Sistema de vendas de cada produto cadastro:
+  - Sistema de compra de cada produto cadastrado:
   
     - Página de produtos;
     - Carrinho de compra;
