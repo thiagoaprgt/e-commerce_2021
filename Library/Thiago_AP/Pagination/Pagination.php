@@ -21,7 +21,7 @@
                 
             /*
             $operator_sql pode ser order, limit e offset 
-            $$table_class_name são as classes que estão na pasta Application/Model            
+            $table_class_name são as classes que estão na pasta Application/Model            
             
             */
 
