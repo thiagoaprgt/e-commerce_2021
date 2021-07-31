@@ -1,5 +1,9 @@
 # e-commerce_2021
-Atualmente estou desenvolvendo um e-commerce em PHP, nesse projeto já tem algumas funcionalidades implementadas como:
+Atualmente estou desenvolvendo um e-commerce em PHP, link para explicação em vídeo da aplicação: 
+
+https://youtu.be/0gknbRNpyDk
+
+Nesse projeto já tem algumas funcionalidades implementadas como:
 
   - Login para cada pessoa cadastrada;
   
@@ -9,7 +13,7 @@ Atualmente estou desenvolvendo um e-commerce em PHP, nesse projeto já tem algum
   
   - Na conexão com o banco de dados foi usado o padrão de projeto Factory afim de otimizar a manutenção do sistema caso haja uma mudança nas informações usadas na conexão com o banco de dados, pois só será preciso alterar as informações em um único arquivo que automaticamente todas as chamadas de conexão com o banco de dados nos outros arquivos se alterarão;
   
-  - Paginação dos artigos cadastrados no banco de dados MySQL foi feita através do Padrão de Projeto Repository, usado para manipular coleções de objetos. Os comandos SQL usados na paginação foram Select, order by, limit e offset;
+  - Paginação dos artigos cadastrados no banco de dados MySQL foi feita através do Padrão de Projeto Repository, usado para manipular coleções de objetos. O comando SQL usado na paginação foi o Select com os operadores order by, limit e offset;
   
   - Centralização das instâncias dos objetos crontroladores no arquivo index foi feita usando o padrão de projeto Front Controller;
   
@@ -21,18 +25,18 @@ Atualmente estou desenvolvendo um e-commerce em PHP, nesse projeto já tem algum
 
   - Listagem dos produtos cadastrados no banco de dados.
 
+  - Foi abstraído o recurso de paginação criado no Home.php para ser reaproveitado, para não ficar repetindo o mesmo código várias vezes (D.R.Y. = Don't repeat yourself). Agora a paginação se tornou uma classe da biblioteca da aplicação.
 
-Próximas funcionalidades:
 
-  - Abstrair o recurso de paginação criado no Home.php para ser reaproveitado em outras classes, para não ficar repetindo o mesmo código várias vezes.
+Próximas funcionalidades: 
 
-  - Adicionar interação entre a tabela de títulos e a tabela de produtos através da foreign key;
+  - CRUD dos clientes;
 
-  - CRUD dos produtos
+  - Fazer o sistema de vendas no banco de dados; 
 
-  - CRUD dos clientes;  
+  - CRUD dos produtos    
   
-  - Sistema de vendas de cada produto cadastro:
+  - Sistema de compra de cada produto cadastrado:
   
     - Página de produtos;
     - Carrinho de compra;
