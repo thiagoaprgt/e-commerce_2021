@@ -12,12 +12,24 @@
 
         public function __construct() {
 
-            echo "Página em desenvolvimento";
+            $this->template =  file_get_contents("Application/Templates/html/Cadastre-se.html");
+
+            $form = file_get_contents("Application/Templates/html/Cadastre-se.html");
+
+            $this->template = str_replace("{{section}}", $form, $this->template);
 
         }
+        
+
+        public function show() {
+
+            parent::show();
+
+            echo $this->template;
+
+        }       
 
     }
-
 
 
 ?>

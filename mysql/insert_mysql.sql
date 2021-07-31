@@ -12,7 +12,7 @@ insert into `produto` (`id`, `descricao`, `estoque`, `preco_custo`, `preco_venda
 ;
 
 
-INSERT INTO `cadastro_do_cliente`(`id`, `nome`, `email`, `senha`, `ddd-telefone`, `telefone`, `cidade`, `estado`, `bairro`, `rua`, `numero`, `complemento`, `cep`) VALUES
+INSERT INTO `cadastro_do_cliente`(`id`, `nome`, `email`, `senha`, `ddd_telefone`, `telefone`, `cidade`, `estado`, `bairro`, `rua`, `numero`, `complemento`, `cep`) VALUES
 
     (null, 'Pessoa1', 'p1@email', '897', '10', '123', 'São Paulo', 'São Paulo', 'bairro1', 'rua1', '123', 'casa1', '12345678'),
     (null, 'Pessoa2', 'p2@email', '787', '10', '123', 'Curitiba', 'Paraná', 'bairro', 'rua2', '456', 'casa2', '12345678'),

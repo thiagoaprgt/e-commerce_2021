@@ -49,22 +49,6 @@
             session_start();
 
             if(isset($_GET['authentication'])) {
-
-
-                 
-                
-                /*
-            
-                    print_r($_SESSION);
-                    
-                    echo "<hr><br>";
-
-                    $current_time = time();
-
-                    echo "tempo atual : $current_time";
-
-                */
-
                 
 
                 $authentication = new Thiago_AP\Authentication\Authentication;

@@ -24,7 +24,7 @@ create table `cadastro_do_cliente` (
     `nome` text(30) not null,
     `email` varchar(30) not null unique,
     `senha` varchar(30) not null,
-    `ddd-telefone` int(3) not null,
+    `ddd_telefone` int(3) not null,
     `telefone` int(9),
     `cidade` text(30) not null,
     `estado` text(30) not null,
