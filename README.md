@@ -25,12 +25,11 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
 
   - Listagem dos produtos cadastrados no banco de dados.
 
-  - Foi abstraído o recurso de paginação criado no Home.php para ser reaproveitado, para não ficar repetindo o mesmo código várias vezes (D.R.Y. = Don't repeat yourself). Agora a paginação se tornou uma classe da biblioteca da aplicação.
+  - Foi abstraído o recurso de paginação criado no Home.php para ser reaproveitado, para não ficar repetindo o mesmo código várias vezes (D.R.Y. = Don't repeat yourself). Agora a paginação se tornou uma classe da biblioteca da aplicação;
 
-
-Próximas funcionalidades: 
-
-  - CRUD dos clientes;
+  - Cadastro da conta do cliente;
+  
+Próximas funcionalidades:   
 
   - Fazer o sistema de vendas no banco de dados; 
 
