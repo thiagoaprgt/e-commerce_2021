@@ -34,10 +34,10 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
    - Carrinho de compra (listagem dos produtos no carrinho, remoção dos produtos no carrinho)
   
 Próximas funcionalidades:   
+    
+  - Adicionar novos produtos ao carrinho de compra;
 
-  - Fazer o sistema de vendas no banco de dados; 
-
-  - CRUD dos produtos    
+  - Fazer o sistema de vendas no banco de dados;   
   
   - Sistema de compra de cada produto cadastrado:    
     
@@ -49,7 +49,7 @@ Próximas funcionalidades:
 
   - Sistema de autorização com diferentes níveis de acesso ao banco de dados;
   
-  - CRUD funcionários;
+  - CRUD funcionários.
         
   
   
