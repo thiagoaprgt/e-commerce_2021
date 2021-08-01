@@ -1,16 +1,16 @@
 # e-commerce_2021
 Atualmente estou desenvolvendo um e-commerce em PHP, link para explicação em vídeo da aplicação: 
 
-Caso você queira testar o sistema eu deixei os comandos para criação das tabela no banco de dados MySQL aqui nesse Git Hub
-
+Link da explicação desse projeto no youtube:
 https://youtu.be/0gknbRNpyDk
 
 Caso você queira testar o sistema eu deixei os comandos para criação do banco de dados e das tabelas MySQL aqui nesse meu Git Hub.
 
-Link para criação das tabelas no MySQL: https://github.com/thiagoaprgt/e-commerce_2021/blob/main/mysql/banco_de_dados_mysql.sql
+Link para criação das tabelas no MySQL:
+https://github.com/thiagoaprgt/e-commerce_2021/blob/main/mysql/banco_de_dados_mysql.sql
 
-Link para criação dos inserts das tabelas no MySQL, deve-se criar as tabelas antes de executar os comando de insert: https://github.com/thiagoaprgt/e-commerce_2021/blob/main/mysql/insert_mysql.sql
-
+Link para criação dos inserts das tabelas no MySQL, deve-se criar as tabelas antes de executar os comando de insert:
+https://github.com/thiagoaprgt/e-commerce_2021/blob/main/mysql/insert_mysql.sql
 
 
 Nesse projeto já tem algumas funcionalidades implementadas como:
