@@ -48,3 +48,36 @@ create table `cadastro_do_conteudo` (
     `data_do_cadastro` date not null
 
 );
+
+
+create table `carrinho_de_compra` (
+
+    `id` int(5) primary key not null auto_increment,
+    
+    `id_cliente` int(5) not null,
+    FOREIGN KEY (id_cliente) REFERENCES cadastro_do_cliente(id),
+
+    `id_produto` int(5) not null,
+    FOREIGN KEY (id_produto) REFERENCES produto(id),   
+
+    `quantidade` int(5) not null
+
+);
+
+
+-- criando uma view do carrinho de compra
+-- a tabela no from tem que ter as foreign key das tabelas do inner join
+
+create view view_carrinho_de_compra AS
+SELECT cadastro_do_cliente.id as id_cliente, produto.id as id_produto, cadastro_do_cliente.nome as cliente, produto.descricao as produto, produto.preco_venda as preco, carrinho_de_compra.quantidade as quantidade
+
+from carrinho_de_compra
+
+INNER JOIN cadastro_do_cliente
+ON carrinho_de_compra.id_cliente = cadastro_do_cliente.id
+
+INNER JOIN produto
+ON carrinho_de_compra.id_produto = produto.id;
+
+
+-- Finalizada com sucesso a view do carrinho de compra

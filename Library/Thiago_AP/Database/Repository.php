@@ -18,10 +18,22 @@
             $this->activeRecord = $class;
         }
 
-        function load(Criteria $criteria) {
-            //instancia a instrução de SELECT             
+        function load(Criteria $criteria, string $columns = "") {
+            //instancia a instrução de SELECT 
+            
+            if($columns == "") {
 
-            $sql = "SELECT * FROM " . constant($this->activeRecord . '::TABLENAME');
+                $sql = "SELECT * FROM " . constant($this->activeRecord . '::TABLENAME');
+
+            }else {
+
+                $sql = implode(", ", $columns);
+
+                $sql = "SELECT $sql FROM " . constant($this->activeRecord . '::TABLENAME');
+
+            }
+
+            
 
             // obtém a cláusula WHERE do objeto criteria
 
@@ -40,6 +52,7 @@
                 $order = $criteria->getProperty('order');
                 $limit = $criteria->getProperty('limit');
                 $offset = $criteria->getProperty('offset');
+                $group_by = $criteria->getProperty('groupby');
 
                 // obtém a ordenação do SELECT
 
@@ -53,6 +66,10 @@
 
                 if($offset) {
                     $sql .= ' OFFSET ' . $offset;
+                }
+
+                if($group_by) {
+                    $sql .= ' GROUP BY ' . $group_by;
                 }
 
             }

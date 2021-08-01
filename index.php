@@ -42,11 +42,13 @@
             
         try{
 
+            session_start();
+
             $pagina = new $class; // instancia a classe
 
             ob_start(); // inicia o controle de output
 
-            session_start();
+            
 
             if(isset($_GET['authentication'])) {
                 
@@ -58,17 +60,20 @@
                 $pagina->show(); // exibe a página                
                 
                 $content = ob_get_contents(); // lê conteúdo gerado
-
-                
-
                 
 
                 $validation = $_SESSION['authentication'];
 
                 $content = str_replace("{authentication}", "authentication=" . $validation, $content);
+
                 $content = str_replace("class=Login", "class=Logout", $content);
                 $content = str_replace("{entrar}", "Logout", $content );
+
                 $content = str_replace("{{pagination}}", "", $content );
+                $content = str_replace("{{pagination}}", "", $content );
+
+                $content = str_replace("{Cadastre-se}", "Carrinho de compra", $content );
+                $content = str_replace("class=Cadastrar_se", "class=Carrinho_de_compra", $content );
 
                 
                 
@@ -83,7 +88,9 @@
 
                 $content = str_replace("{authentication}", "", $content);
                 $content = str_replace("{entrar}", "Login", $content);
-                $content = str_replace("{{pagination}}", "", $content );
+                $content = str_replace("{{pagination}}", "", $content);
+                $content = str_replace("{Cadastre-se}", "Cadastre-se", $content);
+                
 
                              
 
@@ -99,9 +106,7 @@
 
         }catch(Exception $e) {
 
-            $content = $e->getMessage() . '<br>' . $e->getTraceAsString();
-
-            //$content = str_replace("{authentication}", "", $content);
+            $content = $e->getMessage() . '<br>' . $e->getTraceAsString();            
 
         }
 

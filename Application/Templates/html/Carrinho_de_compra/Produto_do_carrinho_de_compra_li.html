@@ -1,0 +1,42 @@
+<li>    
+
+    <p>Produto: {produto}</p>
+
+    <div class="CarrinhoDeCompra">
+
+        <a href="index.php?{authentication}&class=Carrinho_de_compra&method=remover_Produto&id_produto={id_produto}">
+
+            <button>Remover Produto</button>
+
+        </a>
+
+        <p>
+
+            <a href="index.php?{authentication}&class=Carrinho_de_compra&method=diminuir_Quantidade">
+
+                <button> &#9665; </button>
+    
+            </a>
+    
+           
+            Quantidade: {quantidade}
+    
+            <a href="index.php?{authentication}&class=Carrinho_de_compra&method=adicionar_Quantidade">
+    
+                <button> &#9655;</button>
+    
+            </a>
+
+        </p>
+
+        
+
+    </div>
+
+    
+
+    <p>Preço unitário: {preço_unitário}</p>
+
+    <p>Preço total: {preço_total}</p>
+    
+</li>
