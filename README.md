@@ -41,7 +41,7 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
 
   - Página de produtos;
   
-   - Carrinho de compra (listagem dos produtos no carrinho, remoção dos produtos no carrinho)
+   - Carrinho de compra (listagem dos produtos no carrinho usando o filtro group by, remoção dos produtos no carrinho)
   
 Próximas funcionalidades:   
     
