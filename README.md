@@ -28,6 +28,10 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
   - Foi abstraído o recurso de paginação criado no Home.php para ser reaproveitado, para não ficar repetindo o mesmo código várias vezes (D.R.Y. = Don't repeat yourself). Agora a paginação se tornou uma classe da biblioteca da aplicação;
 
   - Cadastro da conta do cliente;
+
+  - Página de produtos;
+  
+   - Carrinho de compra (listagem dos produtos no carrinho, remoção dos produtos no carrinho)
   
 Próximas funcionalidades:   
 
@@ -35,10 +39,12 @@ Próximas funcionalidades:
 
   - CRUD dos produtos    
   
-  - Sistema de compra de cada produto cadastrado:
-  
-    - Página de produtos;
-    - Carrinho de compra;
+  - Sistema de compra de cada produto cadastrado:    
+    
+    - Carrinho de compra (adicionar quantidade de produtos e diminuir quantidade de produtos);
+
+    - Fazer uma trigger no banco de banco que diminua a quantidade comprada do quantidade no estoque quando uma compra for concluída.
+    
     - check out da compra;
 
   - Sistema de autorização com diferentes níveis de acesso ao banco de dados;
