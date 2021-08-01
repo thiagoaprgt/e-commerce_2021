@@ -1,7 +1,7 @@
 # e-commerce_2021
 Atualmente estou desenvolvendo um e-commerce em PHP.
 
-Link do youtube para a explicação desse projeto:
+Link do youtube onde eu explico e mostro as funcionalidades do projeto:
 
 Parte 1: https://youtu.be/0gknbRNpyDk
 
