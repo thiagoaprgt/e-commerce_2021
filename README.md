@@ -2,7 +2,10 @@
 Atualmente estou desenvolvendo um e-commerce em PHP, link para explicação em vídeo da aplicação: 
 
 Link da explicação desse projeto no youtube:
-https://youtu.be/0gknbRNpyDk
+
+Parte 1: https://youtu.be/0gknbRNpyDk
+
+Parte 2: ainda não foi feito.
 
 Caso você queira testar o sistema eu deixei os comandos para criação do banco de dados e das tabelas MySQL aqui nesse meu Git Hub.
 
