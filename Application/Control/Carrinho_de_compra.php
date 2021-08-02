@@ -15,20 +15,34 @@
 
             try{
 
+                if(empty($_SESSION)) {
+
+                    // Caso o cliente tentar acessar a página do carrinho_de_compra sem estar logado
+
+                    header("Location:index.php?class=Login");
+                    
+                }
+
                 Transaction::open("loja");
 
                 // a sessão é iniciada no index.php
-                // a sessão é encerrada no Logout.php e pela autenticação               
-
+                // a sessão é encerrada no Logout.php e pela autenticação  
                 
 
                 $criteria = new Criteria;
                 $criteria->add('id_cliente', '=', $_SESSION['id']);
                 $criteria->setProperty('groupby', 'produto');
-               
-
+                
+                
                 $repository = new Repository('View_carrinho_de_compra');
-                $obj = $repository->load($criteria); 
+
+                $columns[] = 'id_cliente';
+                $columns[] = 'produto';
+                $columns[] = 'id_produto';
+                $columns[] = 'sum(quantidade) as quantidade';
+                $columns[] = 'preco';
+
+                $obj = $repository->load($criteria, $columns); 
 
 
                 $produtos = "";
@@ -77,22 +91,79 @@
             
             parent::show();
 
-            echo $this->template;
-           
+            echo $this->template;           
 
         }
 
 
         public function adicionar_Quantidade() {
 
-            header("Location:index.php?{authentication}&class=Carrinho_de_compra");
+            try{
+
+                Transaction::open('loja');
+
+
+                $criteria = new Criteria;
+                $criteria->add('id_cliente', '=', $_SESSION['id']);
+                $criteria->add('id_produto', '=', $_GET['id_produto']);
+
+                $carrinho_de_compra = new Tabela_carrinho_de_compra;
+
+                $carrinho_de_compra->id_cliente = $_SESSION['id'];
+                $carrinho_de_compra->id_produto = $_GET['id_produto'];
+                $carrinho_de_compra->quantidade = 1;
+
+                $carrinho_de_compra->store();  
+
+                Transaction::close();
+
+                header("Location:index.php?authentication=" . $_SESSION['authentication'] . "&class=Carrinho_de_compra");
+                
+
+            }catch(Expection $e) {
+
+                print $e->getMessage();
+
+                Transaction::rollback();
+
+            }
+            
 
         }
 
 
         public function diminuir_Quantidade() {            
 
-            header("Location:index.php?{authentication}&class=Carrinho_de_compra");
+            try{
+
+                Transaction::open('loja');
+
+                //DELETE FROM `carrinho_de_compra` WHERE id_cliente=1 and id_produto=3 order by id desc limit 1.
+                // irá deletar apenas um registro por causa do operador SQL limit.
+                // o registro deletado será o que tiver o maior id por causa do operador desc que ordenou de forma decrescente.
+
+                $criteria = new Criteria;
+                $criteria->add('id_cliente', '=', $_SESSION['id']);
+                $criteria->add('id_produto', '=', $_GET['id_produto']);
+                
+                $criteria->setProperty('order', 'id desc');
+                $criteria->setProperty('limit', '1');                                 
+
+                $repository = new Repository('Tabela_carrinho_de_compra');
+                $repository->delete($criteria);   
+
+                Transaction::close();
+
+                header("Location:index.php?authentication=" . $_SESSION['authentication'] . "&class=Carrinho_de_compra");
+                                
+
+            }catch(Expection $e) {
+
+                print $e->getMessage();
+
+                Transaction::rollback();
+
+            }
 
         }
 
@@ -116,10 +187,9 @@
                 $repository = new Repository('Tabela_carrinho_de_compra');
                 $repository->delete($criteria);
 
-
                 Transaction::close();
 
-                header("Location:index.php?{authentication}&class=Carrinho_de_compra");
+                header("Location:index.php?authentication=" . $_SESSION['authentication'] . "&class=Carrinho_de_compra");
 
             }catch(Expection $e) {
 

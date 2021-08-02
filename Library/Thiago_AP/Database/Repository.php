@@ -1,9 +1,5 @@
 <?php
-
-
-    // dependendo do banco de dados SQL que estiver sendo usado alguns detalhes irão mudar, 
-    // porém eu usei o postgres então ficará um pouco diferente o código sql 
-
+    
     // manipula coleções de objetos
 
     namespace Thiago_AP\Database;
@@ -18,10 +14,10 @@
             $this->activeRecord = $class;
         }
 
-        function load(Criteria $criteria, string $columns = "") {
+        function load(Criteria $criteria, array $columns = null) {
             //instancia a instrução de SELECT 
             
-            if($columns == "") {
+            if($columns == null) {
 
                 $sql = "SELECT * FROM " . constant($this->activeRecord . '::TABLENAME');
 
@@ -110,14 +106,40 @@
         }
 
         function delete(Criteria $criteria) {
-            $expression = $criteria->dump();
 
-             
+            $expression = $criteria->dump();             
 
             $sql = "DELETE FROM " . constant($this->activeRecord . '::TABLENAME');
             if($expression) {
                 $sql .= ' WHERE ' . $expression;
             }
+
+
+            // obtém as propriedades do critério
+
+            $order = $criteria->getProperty('order');
+            $limit = $criteria->getProperty('limit');
+            $offset = $criteria->getProperty('offset');
+            $group_by = $criteria->getProperty('groupby');
+
+            // obtém a ordenação do SELECT
+
+            if($order) {
+                $sql .= ' ORDER BY ' . $order;
+            }
+
+            if($limit) {
+                $sql .= ' LIMIT ' . $limit;
+            }
+
+            if($offset) {
+                $sql .= ' OFFSET ' . $offset;
+            }
+
+            if($group_by) {
+                $sql .= ' GROUP BY ' . $group_by;
+            }
+          
 
             //obtém transação ativa
 

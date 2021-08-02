@@ -87,7 +87,7 @@
 
                 
 
-                if(isset($_SESSION) && $_GET['authentication'] == $_SESSION['authentication']) {
+                if($_GET['authentication'] == $_SESSION['authentication']) {
 
                     
                     $this->verify_expiration();

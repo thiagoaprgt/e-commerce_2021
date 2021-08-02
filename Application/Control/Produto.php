@@ -37,18 +37,25 @@
                 $template_list = "";
 
                 foreach($produtos as $produto) {
-                    
-                    $list = "Descrição: \t $produto->descricao<br>";
+
+                    $list = "ID: \t $produto->id<br>";                    
+                    $list .= "Descrição: \t $produto->descricao<br>";
                     $list .= "Estoque: \t $produto->estoque<br>";
                     $list .= "Preço do custo: \t $produto->preco_custo<br>";
                     $list .= "Preço da venda: \t $produto->preco_venda<br>";
                     $list .= "Código de barras: \t $produto->codigo_de_barras<br>";
 
-                    $template_list .= str_replace("{{produtos}}", $list, $template_list_li);
+                    
+                    
+                    $list = str_replace("{{produtos}}", $list, $template_list_li);
+                    $list = str_replace("{id_produto}", $produto->id, $list);
+
+                    $template_list .= $list;                   
                                      
                     
                 }
 
+                
 
                 $template_list_ul = file_get_contents("Application/Templates/html/Lista_dos_produtos/Lista_dos_produtos_ul.html");
 

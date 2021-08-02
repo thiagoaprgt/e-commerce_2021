@@ -69,7 +69,7 @@ create table `carrinho_de_compra` (
 -- a tabela no from tem que ter as foreign key das tabelas do inner join
 
 create view view_carrinho_de_compra AS
-SELECT cadastro_do_cliente.id as id_cliente, produto.id as id_produto, cadastro_do_cliente.nome as cliente, produto.descricao as produto, produto.preco_venda as preco, carrinho_de_compra.quantidade as quantidade
+SELECT carrinho_de_compra.id, cadastro_do_cliente.id as id_cliente,  cadastro_do_cliente.nome as cliente, produto.id as id_produto, produto.descricao as produto, produto.preco_venda as preco, carrinho_de_compra.quantidade as quantidade
 
 from carrinho_de_compra
 
@@ -81,3 +81,18 @@ ON carrinho_de_compra.id_produto = produto.id;
 
 
 -- Finalizada com sucesso a view do carrinho de compra
+
+--teste view
+
+create view view_carrinho_de_compra AS
+SELECT cadastro_do_cliente.id as id, cadastro_do_cliente.nome as cliente, produto.descricao as produto, produto.preco_venda as preco, sum(carrinho_de_compra.quantidade) as quantidade
+
+from carrinho_de_compra
+
+INNER JOIN cadastro_do_cliente
+ON carrinho_de_compra.id_cliente = cadastro_do_cliente.id
+
+INNER JOIN produto
+ON carrinho_de_compra.id_produto = produto.id
+
+group by produto

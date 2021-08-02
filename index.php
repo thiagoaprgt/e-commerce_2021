@@ -54,7 +54,7 @@
                 
 
                 $authentication = new Thiago_AP\Authentication\Authentication;
-                $authentication->login_Authentication();
+                $authentication->login_Authentication();                
 
                 
                 $pagina->show(); // exibe a página                
@@ -80,6 +80,7 @@
 
             }else {
 
+                
                 $pagina->show(); // exibe a página
 
                 
@@ -90,11 +91,7 @@
                 $content = str_replace("{entrar}", "Login", $content);
                 $content = str_replace("{{pagination}}", "", $content);
                 $content = str_replace("{Cadastre-se}", "Cadastre-se", $content);
-                
-
-                             
-
-                
+                $content = str_replace("id_produto={id_produto}", "", $content);
                 
             }
 
