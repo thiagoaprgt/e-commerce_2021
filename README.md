@@ -1,7 +1,20 @@
 # e-commerce_2021
-Atualmente estou desenvolvendo um e-commerce em PHP, link para explicação em vídeo da aplicação: 
+Atualmente estou desenvolvendo um e-commerce em PHP.
 
-https://youtu.be/0gknbRNpyDk
+Link do youtube onde eu explico e mostro as funcionalidades do projeto:
+
+Parte 1: https://youtu.be/0gknbRNpyDk
+
+Parte 2: ainda não foi feito.
+
+Caso você queira testar o sistema eu deixei os comandos para criação do banco de dados e das tabelas MySQL aqui nesse meu Git Hub.
+
+Link para criação das tabelas no MySQL:
+https://github.com/thiagoaprgt/e-commerce_2021/blob/main/mysql/banco_de_dados_mysql.sql
+
+Link para criação dos inserts das tabelas no MySQL, deve-se criar as tabelas antes de executar os comando de insert:
+https://github.com/thiagoaprgt/e-commerce_2021/blob/main/mysql/insert_mysql.sql
+
 
 Nesse projeto já tem algumas funcionalidades implementadas como:
 
@@ -28,22 +41,28 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
   - Foi abstraído o recurso de paginação criado no Home.php para ser reaproveitado, para não ficar repetindo o mesmo código várias vezes (D.R.Y. = Don't repeat yourself). Agora a paginação se tornou uma classe da biblioteca da aplicação;
 
   - Cadastro da conta do cliente;
+
+  - Página de produtos;
+  
+   - Carrinho de compra (listagem dos produtos no carrinho usando o operador SQL group by, remoção dos produtos no carrinho)
   
 Próximas funcionalidades:   
+    
+  - Adicionar novos produtos ao carrinho de compra;
 
-  - Fazer o sistema de vendas no banco de dados; 
+  - Fazer o sistema de vendas no banco de dados;   
+  
+  - Sistema de compra de cada produto cadastrado:    
+    
+    - Carrinho de compra (adicionar quantidade de produtos e diminuir quantidade de produtos);
 
-  - CRUD dos produtos    
-  
-  - Sistema de compra de cada produto cadastrado:
-  
-    - Página de produtos;
-    - Carrinho de compra;
+    - Fazer uma trigger no banco de banco que diminua a quantidade comprada do quantidade no estoque quando uma compra for concluída.
+    
     - check out da compra;
 
   - Sistema de autorização com diferentes níveis de acesso ao banco de dados;
   
-  - CRUD funcionários;
+  - CRUD funcionários.
         
   
   
