@@ -39,9 +39,8 @@
                 foreach($produtos as $produto) {
                                         
                     $list = "Descrição: \t $produto->descricao<br>";
-                    $list .= "Estoque: \t $produto->estoque<br>";
-                    $list .= "Preço do custo: \t $produto->preco_custo<br>";
-                    $list .= "Preço da venda: \t $produto->preco_venda<br>";
+                    $list .= "Estoque: \t $produto->estoque<br>";                    
+                    $list .= "Preço: \t $produto->preco_venda<br>";
                     $list .= "Código de barras: \t $produto->codigo_de_barras<br>";
 
                     

@@ -12,8 +12,20 @@
 
         public function __construct() {
 
-            echo "Página em desenvolvimento";
+            $home = file_get_contents('Application/Templates/html/Home.html');
 
+            $this->template = file_get_contents("Application/Templates/html/Contato.html");
+
+            $this->template = str_replace("{{section}}", $this->template, $home);
+
+        }
+
+        
+        public function show() {
+
+            parent::show();
+
+            echo $this->template;
         }
 
     }
