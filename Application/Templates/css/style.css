@@ -173,7 +173,36 @@
 
     }
 
+    form{
+        
+        
+        border: solid;   
+        width: 100%;
+        margin: 0px 30px 0px 30px;
+    }
+   
+    input {
+
+        width: 60%;
+    }
+
+
+    form>button {
+        width: 50%;
+        height: 30px;
+        margin: 10px 0px 10px 0px;
+    }
+
     
+
+    .login, .form{
+
+        margin: 10px 10px 10px 0px;               
+
+    }
+
+
+   
 
     
 

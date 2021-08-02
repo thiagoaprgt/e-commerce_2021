@@ -9,22 +9,33 @@
 
     <body>
 
-        <p>Faça seu login</p>
+        
 
         <form action="index.php?class=User_logged" method="post">
             
+        <p class="login">Faça seu login</p>
+
+        <div class="login">
+
+            <label>e-mail: </label> 
+            <input type="email" name="email">
+
+        </div>
             
-        <label>e-mail: </label> 
-        <input type="email" name="email">
+       
 
-        <label>senha</label>    
-        <input type="password" name="password">
+        <div class="login">
 
-        <button type="submit">logar</button>
+            <label>senha</label>    
+            <input type="password" name="password">
+            
+        </div>
+
+            <button type="submit">logar</button>
 
         </form>
 
-        <a href="index.php">Voltar para Home</a>
+        
         
     </body>
 </html>

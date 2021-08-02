@@ -12,7 +12,7 @@
 
         public function __construct() {
 
-            $this->template =  file_get_contents("Application/Templates/html/Cadastre-se.html");
+            $this->template =  file_get_contents("Application/Templates/html/Home.html");
 
             $form = file_get_contents("Application/Templates/html/Cadastre-se.html");
 

@@ -9,8 +9,11 @@
         public function __construct() {
 
             
+            $this->template = file_get_contents("Application/Templates/html/Home.html");
+            
+            $template = file_get_contents("Application/Templates/html/Login.html");
 
-            $this->template = file_get_contents("Application/Templates/html/Login.html");
+            $this->template = str_replace("{{section}}", $template, $this->template);
 
             // parent::show é a função da classe Page 
 
