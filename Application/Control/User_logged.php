@@ -28,33 +28,7 @@
                 $criteria->add('email', '=', $email);
                 $criteria->add('senha', '=', $password);
 
-                $user_dataset = $repository->load($criteria);
-
-
-                /* ----------------------------------------------- */
-                // teste               
-
-
-                
-                /*
-
-                echo "<pre>";
-
-
-                print_r($user_dataset);
-                
-                $data = $user_dataset[0];
-
-                echo "O cliente $data->nome foi logado com sucesso !!! <hr>";
-
-                echo "</pre>";
-
-                */
-                
-
-                //fim do teste
-
-                /* ---------------------------------------------------- */
+                $user_dataset = $repository->load($criteria);               
 
 
                 if(empty($user_dataset)) {
@@ -72,50 +46,16 @@
                 session_start();
 
                 $_SESSION['id'] = $object->id;
-                $_SESSION['nome'] = $object->nome;                           
-                $_SESSION['cidade'] = $object->cidade;
-                $_SESSION['estado'] = $object->estado;
-                $_SESSION['bairro'] = $object->bairro;
-                $_SESSION['rua'] = $object->rua;
-                $_SESSION['numero'] = $object->numero;
-                $_SESSION['complemento'] = $object->complemento;
-
-                echo "<pre>";
-
-                print_r($_SESSION);
-
-                echo "</pre>";
+                $_SESSION['nome'] = $object->nome;
+                $_SESSION['email'] = $object->email;                             
 
                 $authentication = new Authentication();
                 $authentication->set_Authentication($object->email);
 
-                $auth = $authentication->get_Authentication();                  
+                $auth = $authentication->get_Authentication();
 
-                
-
-                
-                echo "<pre>";
-
-                print_r($authentication);
-
-                echo "<br>";
-                
-                print_r($_SESSION);
-
-                echo "<br>";
-
-                echo $auth;
-
-                
-
-                echo "</pre>";
-            
-                
                 
                 Transaction::close(); 
-
-                 
-                
 
                 header("Location:index.php?class=Home&authentication=$auth");
 
