@@ -1,5 +1,5 @@
 # e-commerce_2021
-Atualmente estou desenvolvendo um e-commerce em PHP.
+Atualmente estou desenvolvendo esse e-commerce em PHP, após o término das funcionalidades do back-end será dado atenção para o front-end (CSS 3 e JavaScript).
 
 Link do youtube onde eu explico e mostro as funcionalidades do projeto:
 
