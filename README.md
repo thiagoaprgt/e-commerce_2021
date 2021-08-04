@@ -44,18 +44,18 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
 
   - Página de produtos;
   
-   - Carrinho de compra (listagem dos produtos no carrinho usando o operador SQL group by, remoção dos produtos no carrinho)
-  
-Próximas funcionalidades:   
-    
-  - Adicionar novos produtos ao carrinho de compra;
+   - Carrinho de compra (listagem dos produtos no carrinho usando o operador SQL group by, remoção dos produtos no carrinho);
+   
+   - Adicionar novos produtos ao carrinho de compra;
+
+   - Carrinho de compra (adicionar quantidade de produtos e diminuir quantidade de produtos);
+   
+Próximas funcionalidades:     
 
   - Fazer o sistema de vendas no banco de dados;   
   
-  - Sistema de compra de cada produto cadastrado:    
+  - Sistema de compra de cada produto cadastrado:  
     
-    - Carrinho de compra (adicionar quantidade de produtos e diminuir quantidade de produtos);
-
     - Fazer uma trigger no banco de banco que diminua a quantidade comprada do quantidade no estoque quando uma compra for concluída.
     
     - check out da compra;
