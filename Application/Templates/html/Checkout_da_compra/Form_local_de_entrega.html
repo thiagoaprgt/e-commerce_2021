@@ -1,20 +1,20 @@
-<form class="local_de_entrega" action="index.php?{authentication}&class=Local_de_entrega&method=cadastrar_local_de_Entrega" method="post" name="address">
+<form class="local_de_entrega" action="index.php?{authentication}&class=Checkout&method=local_de_Entrega" method="post">
 
     <p>Cadastre o local onde será entregue os produtos</p>
 
-    <label>País:</label> <input type="text" name="country">
+    <label>País:</label> <input type="text" name="country" required>
 
-    <label>Rua:</label>  <input type="text" name="street">
+    <label>Rua:</label>  <input type="text" name="street" required>
 
-    <label>Número da rua:</label>  <input type="number" name="street_number">
+    <label>Número da rua:</label>  <input type="number" name="street_number" required>
 
-    <label>Estado:</label>  <input type="text" name="state">
+    <label>Estado:</label>  <input type="text" name="state" required>
 
-    <label>Cidade:</label>  <input type="text" name="city">
+    <label>Cidade:</label>  <input type="text" name="city" required>
 
-    <label>Bairro:</label>  <input type="text" name="neighborhood">
+    <label>Bairro:</label>  <input type="text" name="neighborhood" required>
 
-    <label>CEP:</label>  <input type="number" name="zipcode">
+    <label>CEP:</label>  <input type="number" name="zipcode" required>
 
     <button type="submit">Cadastrar</button>
 

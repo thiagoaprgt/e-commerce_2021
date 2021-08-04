@@ -26,22 +26,27 @@
 
             $this->template = str_replace("{{section}}", $this->template, $home);
 
+            
+
+           
+
+            
+
         }
 
         public function show() {
 
-            parent::show();
+            parent::show();            
+            
 
             echo $this->template;
 
         }
 
 
-        public function cadastrar_local_de_Entrega() {
-
-            echo "Método em desenvolvimento";
-
-        }
+        
+        
+        
 
 
     }
