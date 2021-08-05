@@ -92,6 +92,7 @@
                 $content = str_replace("{{pagination}}", "", $content);
                 $content = str_replace("{Cadastre-se}", "Cadastre-se", $content);
                 $content = str_replace("id_produto={id_produto}", "", $content);
+               
                 
             }
 

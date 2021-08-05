@@ -6,7 +6,7 @@
 
         private $template;
 
-        public function __construct() {
+        public function __construct() {            
 
             
             $this->template = file_get_contents("Application/Templates/html/Home.html");
@@ -16,17 +16,13 @@
             $this->template = str_replace("{{section}}", $template, $this->template);
 
             // parent::show é a função da classe Page 
-
-            parent::show(); 
-
-
+            
         }
         
 
         public function show() {
 
-            
-
+            parent::show();             
             echo $this->template;
 
         }

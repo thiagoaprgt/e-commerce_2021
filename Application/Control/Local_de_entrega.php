@@ -5,7 +5,7 @@
     use Thiago_AP\Database\Criteria;
     use Thiago_AP\Database\Repository;
     use Thiago_AP\Pagination\Pagination;
-
+    
 
     class Local_de_entrega extends Page {
 
@@ -14,7 +14,7 @@
 
         public function __construct() {
 
-            if(empty($_SESSION)) {
+            if(empty($_SESSION) ) {
 
                 header("Location:index.php?class=Login");
 
@@ -25,19 +25,12 @@
             $this->template = file_get_contents("Application/Templates/html/Checkout_da_compra/Form_local_de_entrega.html");
 
             $this->template = str_replace("{{section}}", $this->template, $home);
-
             
-
-           
-
-            
-
         }
 
         public function show() {
 
-            parent::show();            
-            
+            parent::show();             
 
             echo $this->template;
 

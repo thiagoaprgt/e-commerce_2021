@@ -1,12 +1,9 @@
 <?php
 
-      
 
-    class Logout{
-        
+    class Logout{        
 
         public function __construct() {
-
            
             session_start();
 
@@ -17,7 +14,6 @@
         }        
 
     }
-
 
 
 ?>

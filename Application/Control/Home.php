@@ -5,10 +5,8 @@
     use Thiago_AP\Database\Criteria;
     use Thiago_AP\Database\Repository;
     use Thiago_AP\Pagination\Pagination;
-    
-    
 
-
+    
     class Home extends Page {
 
         protected $template;
@@ -38,7 +36,6 @@
                 // Concluído com sucesso a criação da paginação.
 
                 /* ---------------------------------------------------------------------- */ 
-
                 
 
                 Transaction::open('loja');                
@@ -91,9 +88,6 @@
                 
 
                 Transaction::close(); 
-
-                
-                
 
 
             } catch (Exception $e) {

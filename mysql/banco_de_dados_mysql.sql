@@ -7,7 +7,7 @@ use loja;
 create table produto (
 
     id int(5) primary key not null auto_increment,
-    descrica varchar(30),
+    descricao varchar(30),
     estoque int(5),
     preco_custo int(5),
     preco_venda int(5),
@@ -24,6 +24,7 @@ create table cadastro_do_cliente (
     id int(5) primary key not null auto_increment,
     nome text(30) not null,
     email varchar(30) not null unique,
+    cpf int(5) not null unique,
     senha varchar(30) not null,
     ddd_telefone int(3) not null,
     telefone int(9),

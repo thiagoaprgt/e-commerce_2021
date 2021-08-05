@@ -11,24 +11,15 @@
 
         private $template;
         private $local_de_entrega;
+        private $payment_method;
 
-        public function __construct() {
-
-            if(empty($_SESSION)) {
-
-                header("Location:index.php?class=Login");
-
-            }
+        public function __construct() {            
 
             $home = file_get_contents("Application/Templates/html/Home.html");
 
             $this->template = file_get_contents("Application/Templates/html/Checkout_da_compra/Checkout_da_compra.html");
 
             $this->template = str_replace("{{section}}", $this->template, $home);
-
-
-            
-            
 
         }
 
@@ -38,6 +29,8 @@
             
             $this->get_local_de_Entrega();
 
+            $this->payment_method();  
+
             echo $this->template;
 
         }
@@ -46,13 +39,11 @@
         public function local_de_Entrega() {            
 
             $_SESSION['address'] = $_POST;
-
             
         }
 
 
         public function get_local_de_Entrega() {
-
 
             if(empty($_SESSION['address'])) {
 
@@ -62,30 +53,48 @@
 
                 $this->template = str_replace("{{local_de_entrega}}", $local_de_entrega, $this->template);
 
+                $this->template = str_replace("{{payment_method}}", "", $this->template);
+
+
+                $this->payment_method = false;
+
             }else{               
 
                 $template = file_get_contents("Application/Templates/html/Checkout_da_compra/Local_de_entrega.html");
 
                 $local_de_entrega = "";
 
-                foreach($_SESSION['address'] as $key => $value) {
+                foreach($_SESSION['address'] as $key => $value) {                    
 
-                    
+                    $local_de_entrega .= str_replace("{{local_de_entrega}}", $key . ": " . $value, $template);      
 
-                    $local_de_entrega .= str_replace("{{local_de_entrega}}", $key . ": " . $value, $template);                    
                 }
 
                 $this->template = str_replace("{{local_de_entrega}}", $local_de_entrega, $this->template);
 
+                $this->payment_method = true;
+
+            }
+            
+
+        }
+
+
+        public function payment_method() {
+
+            if($this->payment_method == false) {
+                header("Location:index.php?authentication=" . $_SESSION['authentication'] . "&class=Local_de_entrega");
             }
 
+            $form =  file_get_contents("Application/Templates/html/Checkout_da_compra/Form_payment_method.html");
             
+            $this->template = str_replace("{{payment_method}}", $form, $this->template);
 
-            
-            
+            $amount = $_SESSION['amount'] /100;
 
-           
-            
+            $amount = number_format($amount, 2, ',', '');         
+
+            $this->template = str_replace("{amount}", "R$ " . $amount, $this->template);
 
         }
 

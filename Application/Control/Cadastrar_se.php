@@ -17,7 +17,6 @@
             $form = file_get_contents("Application/Templates/html/Cadastre-se.html");
 
             $this->template = str_replace("{{section}}", $form, $this->template);
-
         }
         
 
@@ -26,7 +25,6 @@
             parent::show();
 
             echo $this->template;
-
         }       
 
     }

@@ -1,0 +1,22 @@
+<p>Formas de pagamento</p>
+
+<a href="index.php?{authentication}&">Gerar boleto</a>
+
+<form action="index.php?{authentication}">
+
+    <p>Cartão de crédito</p>
+
+    <input type="hidden" disabled name="payment_method" value="credit_card">
+
+    <input type="text" placeholder="Número" name="card_number">
+
+    <input type="text" placeholder="Nome (igual no cartão)" name="card_holder_name">    
+    
+    <input type="text" placeholder="Validade" name="card_expiration_date">
+    
+    <input type="text" placeholder="CVV" name="card_cvv">   
+
+    <button type="submit">Pagar {amount}</button>
+
+    
+</form>

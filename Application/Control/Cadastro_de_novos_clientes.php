@@ -1,7 +1,5 @@
-<?php
-
+<?php    
     
-    //use Thiago_AP\Control\Page;
     use Thiago_AP\Database\Transaction; 
     use Thiago_AP\Database\Record;   
     use Thiago_AP\Database\Criteria;

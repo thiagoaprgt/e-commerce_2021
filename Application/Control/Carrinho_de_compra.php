@@ -9,6 +9,7 @@
     class Carrinho_de_compra extends Page {
 
         private $template;
+        private $preco_total_do_carrinho_de_compra;
 
         
         public function __construct() {
@@ -20,7 +21,7 @@
                     // Caso o cliente tentar acessar a página do carrinho_de_compra sem estar logado
 
                     header("Location:index.php?class=Login");
-                    
+
                 }
 
                 Transaction::open("loja");
@@ -46,6 +47,8 @@
 
 
                 $produtos = "";
+
+                $this->preco_total_do_carrinho_de_compra = 0;
     
                 foreach($obj as $db) {
 
@@ -60,18 +63,25 @@
                     $produto = str_replace("{preço_total}", $preco_total, $produto);
 
                     $produtos .= $produto;
-                    
+
+                    $this->preco_total_do_carrinho_de_compra += $preco_total;                    
                     
                 }
+                
 
                 $carrinho_de_compra = file_get_contents("Application/Templates/html/Carrinho_de_compra/Produto_do_carrinho_de_compra_ul.html");
 
-                $carrinho_de_compra = str_replace("{produto_do_carrinho_de_compra}", $produtos, $carrinho_de_compra);                
+                $carrinho_de_compra = str_replace("{produto_do_carrinho_de_compra}", $produtos, $carrinho_de_compra);                  
                 
+                
+
+                $this->template = $carrinho_de_compra;
 
                 $this->template = file_get_contents("Application/Templates/html/Home.html");
 
                 $this->template = str_replace("{{section}}", $carrinho_de_compra, $this->template);
+
+                
 
 
                 Transaction::close();
@@ -89,9 +99,20 @@
 
         public function show() { 
             
-            parent::show();
+            parent::show();  
 
+            $this->preco_total_do_Carrinho(); 
+            
             echo $this->template;           
+
+        }
+
+
+        public function preco_total_do_Carrinho() {
+            
+            $_SESSION['amount'] = $this->preco_total_do_carrinho_de_compra;
+
+            $this->template = str_replace("{{amount}}", $this->preco_total_do_carrinho_de_compra, $this->template);
 
         }
 
@@ -104,7 +125,7 @@
 
 
                 $criteria = new Criteria;
-                $criteria->add('id_cliente', '=', $_SESSION['id']);
+                $criteria->add('id', '=', $_SESSION['id']);
                 $criteria->add('id_produto', '=', $_GET['id_produto']);
 
                 $carrinho_de_compra = new Tabela_carrinho_de_compra;
@@ -171,9 +192,6 @@
 
         public function remover_Produto() {
 
-            
-
-
             try{
 
                 Transaction::open('loja');
@@ -198,12 +216,6 @@
                 Transaction::rollback();
 
             }
-
-            
-
-            
-
-            
 
         }
 

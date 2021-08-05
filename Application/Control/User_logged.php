@@ -45,20 +45,38 @@
 
                 session_start();
 
+
                 $_SESSION['id'] = $object->id;
-                $_SESSION['nome'] = $object->nome;
-                $_SESSION['email'] = $object->email;                             
+
+                // customer será usado na API do gateway de pagamento da empresa PAGARME
+
+                $_SESSION['customer'] = [
+                    
+                    'external_id' => $object->id,
+                    'name' => $object->nome,
+                    'type' => 'individual',
+                    'country' => 'br',
+
+                    'documents' => [
+
+                        [
+                            'type' => 'cpf',
+                            'number' => $object->cpf
+                        ]
+
+                    ],
+
+                    'phone_numbers' => '+55' . $this->ddd_telefone . $this->telefone,
+                    'email' => $object->email
+                ];                       
 
                 $authentication = new Authentication();
                 $authentication->set_Authentication($object->email);
-
                 $auth = $authentication->get_Authentication();
-
                 
                 Transaction::close(); 
 
                 header("Location:index.php?class=Home&authentication=$auth");
-
 
             }else {
 

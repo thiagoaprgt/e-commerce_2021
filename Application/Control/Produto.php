@@ -28,8 +28,6 @@
 
                 $produtos = $repository->load($criteria);
 
-
-               
                 
                 $list = "";                
                 $template_list_li = file_get_contents("Application/Templates/html/Lista_dos_produtos/Lista_dos_produtos_li.html");
@@ -42,7 +40,6 @@
                     $list .= "Estoque: \t $produto->estoque<br>";                    
                     $list .= "Preço: \t $produto->preco_venda<br>";
                     $list .= "Código de barras: \t $produto->codigo_de_barras<br>";
-
                     
                     
                     $list = str_replace("{{produtos}}", $list, $template_list_li);
@@ -59,16 +56,11 @@
 
                 $template_list_ul = str_replace("{{produtos}}", $template_list, $template_list_ul);
 
-                $this->template = str_replace("{{section}}", $template_list_ul, $this->template);
-
-                     
-                
-                
+                $this->template = str_replace("{{section}}", $template_list_ul, $this->template);                
 
 
                 Transaction::close();
-
-
+                
                 
             }catch(Exception $e) {
 
@@ -83,7 +75,7 @@
 
         public function show() {
 
-            parent::show();
+            parent::show();            
 
             echo $this->template;
 
