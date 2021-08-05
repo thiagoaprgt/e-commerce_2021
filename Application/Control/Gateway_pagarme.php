@@ -43,6 +43,8 @@
         }
 
         public function http_Post($post_data, $url) {
+
+            // Buscando uma página e enviando dados pelo método POST
            
             // http_build_query gera a string de consulta (query) em formato URL
 
@@ -57,6 +59,14 @@
                     'content' => $postdata
                 )
             );
+
+            /*
+
+            stream_context_create cria e retorna um fluxo de texto e aplica várias opções que podem ser usadas para fopen (), 
+            file_get_contents () e outros procedimentos, como configurações de tempo limite, servidor proxy, método de solicitação, 
+            informações de cabeçalho configuram um processo especial.
+
+            */
             
             $context = stream_context_create($opts);      
             
