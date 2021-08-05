@@ -64,7 +64,20 @@
 
                     $produtos .= $produto;
 
-                    $this->preco_total_do_carrinho_de_compra += $preco_total;                    
+                    $this->preco_total_do_carrinho_de_compra += $preco_total;  
+
+                    
+                    // $_SESSION['items'] será usado para passar informações para o gatewaay de pagamento
+
+                    $items[] = [
+                        'id' => $db->id_produto,
+                        'title' => $db->produto,
+                        'unit_price' => $db->preco,
+                        'quantity' => $db->quantidade,
+                        'tangible' => 'true'
+                    ];
+
+                    $_SESSION['items'] = $items;
                     
                 }
                 
@@ -79,9 +92,7 @@
 
                 $this->template = file_get_contents("Application/Templates/html/Home.html");
 
-                $this->template = str_replace("{{section}}", $carrinho_de_compra, $this->template);
-
-                
+                $this->template = str_replace("{{section}}", $carrinho_de_compra, $this->template);                
 
 
                 Transaction::close();
@@ -101,8 +112,8 @@
             
             parent::show();  
 
-            $this->preco_total_do_Carrinho(); 
-            
+            $this->preco_total_do_Carrinho();
+                   
             echo $this->template;           
 
         }

@@ -26,7 +26,7 @@
 
                 $repository = new Repository('Lista_dos_produtos');
 
-                $produtos = $repository->load($criteria);
+                $produtos = $repository->load($criteria);                              
 
                 
                 $list = "";                
@@ -45,8 +45,7 @@
                     $list = str_replace("{{produtos}}", $list, $template_list_li);
                     $list = str_replace("{id_produto}", $produto->id, $list);
 
-                    $template_list .= $list;                   
-                                     
+                    $template_list .= $list;
                     
                 }
 
@@ -75,7 +74,11 @@
 
         public function show() {
 
-            parent::show();            
+            parent::show();  
+            
+            echo "<pre>";
+            print_r($_SESSION);
+            echo "</pre>";
 
             echo $this->template;
 
