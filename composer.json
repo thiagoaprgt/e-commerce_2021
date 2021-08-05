@@ -1,6 +1,6 @@
 {
     "name": "thiago_ap/e-commerce_de_saude_e_beleza",
     "require": {
-        "pagarme/pagarme-php": "^4.1"
+        
     }
 }

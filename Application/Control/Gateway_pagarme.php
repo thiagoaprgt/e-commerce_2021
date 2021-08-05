@@ -66,6 +66,8 @@
             file_get_contents () e outros procedimentos, como configurações de tempo limite, servidor proxy, método de solicitação, 
             informações de cabeçalho configuram um processo especial.
 
+            É possível fazer o curl no php para simular os verbos HTTP como post
+
             */
             
             $context = stream_context_create($opts);      
