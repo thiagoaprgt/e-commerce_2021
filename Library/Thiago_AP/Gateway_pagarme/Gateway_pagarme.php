@@ -1,11 +1,8 @@
 <?php
-
-    use Thiago_AP\Control\Page;
+    
     use Thiago_AP\Http_request\Http_request;
-       
 
-
-    class Gateway_pagarme extends Page {
+    class Gateway_pagarme {
 
         private $endpoint;    
         private $request;        
@@ -49,13 +46,11 @@
         }
 
 
-        public function show() {
-
-            parent::show();
+        public function show() {            
             
             echo "<pre>";
 
-            print_r($this->array);
+            print_r($this->data);
 
             echo "</pre>";
 
