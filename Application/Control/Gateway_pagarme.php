@@ -1,22 +1,50 @@
 <?php
 
     use Thiago_AP\Control\Page;
-    use Thiago_AP\Database\Transaction;
-    use Thiago_AP\Database\Criteria;
-    use Thiago_AP\Database\Repository;     
+    use Thiago_AP\Http_request\Http_request;
+       
 
 
     class Gateway_pagarme extends Page {
 
-        private $endpoint = "https://api.pagar.me/1";
-        private $array;
+        private $endpoint;    
+        private $request;        
+        private $data;
+
+        private $customer;
+        private $billing;
+        private $shipping;
+        private $items;
+        private $type_of_payment;
+        private $credit_card;
 
         public function __construct () {
 
             // O arquivo Pagarme.ini está no gitignore para não vazar a chave nos commit 
+
+            $this->endpoint = "https://api.pagar.me/1";
+
+            $this->request = new Http_request;
             
-            $key = $this->api_Key();           
-           
+            $this->type_of_payment = isset($_SESSION['type_of_payment']) ? $_SESSION['type_of_payment'] : 'boleto';
+
+            $key = $this->api_Key();
+
+
+            $this->data[] = $key;
+
+            
+            if($this->type_of_payment == 'credit_card') {
+
+                $this->data[] = $this->credit_card_Payment();
+
+            }
+
+
+            $this->data[] = set_Customer();
+            $this->data[] = set_Billing();
+            $this->data[] = set_Shipping();
+            $this->data[] = set_Items();                       
 
         }
 
@@ -34,45 +62,49 @@
         }
 
 
-        public function api_Key() {
+        private function api_Key() {
+
             $config = parse_ini_file("Application/Config/Pagarme.ini");
 
             $api_key = $config['api_key_pagarme'];
 
             return $api_key;
         }
-
-        public function http_Post($post_data, $url) {
-
-            // Buscando uma página e enviando dados pelo método POST
+        
+        
+        public function set_Customer() {
            
-            // http_build_query gera a string de consulta (query) em formato URL
+            $this->customer = isset($_SESSION['customer']) ? $_SESSION['customer'] : "";
 
-            $post_data = http_build_query($post_data);
+        }
 
-            // informações http 
+
+        public function set_Billing() {
+
+            $this->billing = isset($_SESSION['billing']) ? $_SESSION['billing'] : "";
             
-            $opts = array('http' =>
-                array(
-                    'method'  => 'POST',
-                    'header'  => 'Content-type: application/x-www-form-urlencoded',
-                    'content' => $postdata
-                )
-            );
+        }
 
-            /*
+        public function set_Shipping() {
 
-            stream_context_create cria e retorna um fluxo de texto e aplica várias opções que podem ser usadas para fopen (), 
-            file_get_contents () e outros procedimentos, como configurações de tempo limite, servidor proxy, método de solicitação, 
-            informações de cabeçalho configuram um processo especial.
+            $this->shipping = isset($_SESSION['shipping']) ? $_SESSION['shipping'] : "";
 
-            É possível fazer o curl no php para simular os verbos HTTP como post
+        }
 
-            */
-            
-            $context = stream_context_create($opts);      
-            
-            $result = file_get_contents($url, false, $context);        
+        public function set_Items() {
+
+            $this->items = isset($_SESSION['items']) ? $_SESSION['items'] : "";
+
+        }     
+        
+        
+        public function credit_card_Payment() {
+
+            $this->credit_card['amount'] = isset($_SESSION['amount']) ? $_SESSION['amount'] : "";
+            $this->credit_card['card_number'] = isset($_SESSION['card_number']) ? $_SESSION['card_number'] : "";
+            $this->credit_card['card_cvv'] = isset($_SESSION['card_cvv']) ? $_SESSION['card_cvv'] : "";
+            $this->credit_card['card_expiration_date'] = isset($_SESSION['card_expiration_date']) ? $_SESSION['card_expiration_date'] : "";
+            $this->credit_card['card_holder_name'] = isset($_SESSION['card_holder_name']) ? $_SESSION['card_holder_name'] : "";
 
         }
 
