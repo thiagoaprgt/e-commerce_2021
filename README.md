@@ -49,6 +49,9 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
    - Adicionar novos produtos ao carrinho de compra;
 
    - Carrinho de compra (adicionar quantidade de produtos e diminuir quantidade de produtos);
+
+   - Request HTTP através da abstração das funções CURL do PHP.
+
    
 Próximas funcionalidades:     
 
