@@ -231,6 +231,40 @@
         }
 
 
+            
+
+        public function remover_todos_os_Produtos() {
+
+            try{
+
+                Transaction::open('loja');
+
+
+                $criteria = new Criteria;
+                $criteria->add('id_cliente', '=', $_SESSION['id']);
+                $criteria->add('id_produto', '>', 0);
+                
+
+                $repository = new Repository('Tabela_carrinho_de_compra');
+                $repository->delete($criteria);
+
+                Transaction::close();
+
+                header("Location:index.php?authentication=" . $_SESSION['authentication'] . "&class=Carrinho_de_compra");
+
+            }catch(Expection $e) {
+
+                print $e->getMessage();
+
+                Transaction::rollback();
+
+            }
+
+
+
+        }
+
+
 
     }
 

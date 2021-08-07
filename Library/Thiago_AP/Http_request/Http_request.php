@@ -41,7 +41,9 @@
         
             $result = curl_exec($ch);     // executa e retorna uma reposta
         
-            curl_close($ch);       
+            curl_close($ch); 
+            
+            return $result;
             
         
             

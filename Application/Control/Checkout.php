@@ -29,7 +29,7 @@
             
             $this->get_local_de_Entrega();
 
-            $this->payment_method();  
+            $this->payment_method(); 
 
             echo $this->template;
 
@@ -98,10 +98,7 @@
 
         }
 
-
-        public function send_pagarme_Checkout() {            
-
-        }
+        
 
     }
 

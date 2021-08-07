@@ -40,15 +40,18 @@
 
                 $object = $user_dataset[0];
 
-                echo "O cliente $object->nome foi logado com sucesso !!! <hr>";
-                
-
-                session_start();
+                echo "O cliente $object->nome foi logado com sucesso !!! <hr>";  
 
 
                 $_SESSION['id'] = $object->id;
 
                 // customer será usado na API do gateway de pagamento da empresa PAGARME
+
+                $telefone = '+55' . $object->ddd_telefone . $object->telefone;
+                
+                // coverte o valor para string
+
+                $telefone = strval($telefone);
 
                 $_SESSION['customer'] = [
                     
@@ -66,9 +69,10 @@
 
                     ],
 
-                    'phone_numbers' => '+55' . $this->ddd_telefone . $this->telefone,
+                    'phone_numbers' => [$telefone],
                     'email' => $object->email
-                ];                       
+                ];                   
+                
 
                 $authentication = new Authentication();
                 $authentication->set_Authentication($object->email);

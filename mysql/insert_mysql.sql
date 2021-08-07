@@ -14,10 +14,10 @@ insert into `produto` (`id`, `descricao`, `estoque`, `preco_custo`, `preco_venda
 
 INSERT INTO `cadastro_do_cliente`(`id`, `nome`, `email`, `cpf`, `senha`, `ddd_telefone`, `telefone`, `cidade`, `estado`, `bairro`, `rua`, `numero`, `complemento`, `cep`) VALUES
 
-    (null, 'Pessoa1', 'p1@email', '8871', '897', '10', '123', 'São Paulo', 'São Paulo', 'bairro1', 'rua1', '123', 'casa1', '12345678'),
-    (null, 'Pessoa2', 'p2@email', '4554', '787', '10', '123', 'Curitiba', 'Paraná', 'bairro', 'rua2', '456', 'casa2', '12345678'),
-    (null, 'Pessoa3', 'p3@email', '1234', '997', '10', '123', 'Belo Horizonte', 'Minas Gerais', 'bairro3', 'rua3', '789', 'casa3', '12345678'),
-    (null, 'Pessoa4', 'p4@email', '4567', '812', '10', '123', 'Florianópolis', 'Santa Catarina', 'bairro4', 'rua4', '147', 'casa4', '12345678')
+    (null, 'Pessoa1', 'p1@email', '95322049037', '897', '10', '123456789', 'São Paulo', 'São Paulo', 'bairro1', 'rua1', '123', 'casa1', '12345678'),
+    (null, 'Pessoa2', 'p2@email', '11608983080', '787', '10', '123456789', 'Curitiba', 'Paraná', 'bairro', 'rua2', '456', 'casa2', '12345687'),
+    (null, 'Pessoa3', 'p3@email', '29792433023', '997', '10', '123456789', 'Belo Horizonte', 'Minas Gerais', 'bairro3', 'rua3', '789', 'casa3', '12345678'),
+    (null, 'Pessoa4', 'p4@email', '21812293097', '812', '10', '123456789', 'Florianópolis', 'Santa Catarina', 'bairro4', 'rua4', '147', 'casa4', '12345678')
 
 ;
 

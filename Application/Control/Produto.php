@@ -74,11 +74,7 @@
 
         public function show() {
 
-            parent::show();  
-            
-            echo "<pre>";
-            print_r($_SESSION);
-            echo "</pre>";
+            parent::show();             
 
             echo $this->template;
 

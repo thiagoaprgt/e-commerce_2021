@@ -2,11 +2,11 @@
 
 <a href="index.php?{authentication}">Gerar boleto</a>
 
-<form action="index.php?{authentication}&class=Gateway_pagarme" method="post">
+<form action="index.php?{authentication}&class=Gateway_pagarme&method=send_checkout_credit_Card" method="post">
 
     <p>Cartão de crédito</p>
 
-    <input type="hidden" disabled name="payment_method" value="credit_card">
+    <input type="hidden" name="payment_method" value="credit_card">
 
     <input type="text" placeholder="Número" name="card_number">
 
