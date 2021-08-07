@@ -52,6 +52,10 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
 
    - Request HTTP através da abstração das funções CURL do PHP.
 
+   - Checkout da compra;
+
+   - Foi implementado o sistema de pagamento com o cartão de crédito.
+
    
 Próximas funcionalidades:     
 
@@ -61,7 +65,9 @@ Próximas funcionalidades:
     
     - Fazer uma trigger no banco de banco que diminua a quantidade comprada do quantidade no estoque quando uma compra for concluída.
     
-    - check out da compra;
+    - Pagamento com boleto;
+
+    - Pagamento com Pix.
 
   - Sistema de autorização com diferentes níveis de acesso ao banco de dados;
   
