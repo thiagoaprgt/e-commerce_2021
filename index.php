@@ -43,6 +43,7 @@
         try{
 
             session_start();
+            session_regenerate_id(true); // para apagar a sessão antiga tornando a aplicação mais segura, pois evita a falha de segurança por fixação de sessão fazendo com que os usuários mal intecionados consigam dados de outros usuários da aplicação
 
             $pagina = new $class; // instancia a classe
 
