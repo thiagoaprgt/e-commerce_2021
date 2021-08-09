@@ -22,6 +22,10 @@
 
         public function __construct () {
 
+            if(empty($_SESSION)){
+                header("location:index.php?class=Login");
+            }
+
             // O arquivo Pagarme.ini está no gitignore para não vazar a chave nos commit 
 
             $this->endpoint = "https://api.pagar.me/1";  
@@ -49,12 +53,7 @@
 
         public function show() { 
             
-            parent::show(); 
-            
-            echo "<pre>";
-            print_r($this->data);
-            echo "</pre>";
-            
+            parent::show();
 
         }
 
