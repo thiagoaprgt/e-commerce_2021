@@ -5,7 +5,7 @@ Link do youtube onde eu explico e mostro as funcionalidades do projeto:
 
 Parte 1: https://youtu.be/0gknbRNpyDk
 
-Parte 2: ainda não foi feito.
+Parte 2: https://youtu.be/5JZtpFYRBfE
 
 Caso você queira testar o sistema eu deixei os comandos para criação do banco de dados e das tabelas MySQL aqui nesse meu Git Hub.
 
