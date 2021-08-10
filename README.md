@@ -54,10 +54,14 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
 
    - Checkout da compra;
 
-   - Foi implementado o sistema de pagamento com o cartão de crédito.
+   - Foi implementado o sistema de pagamento com o cartão de crédito;
+
+  - Persistência no banco de dados das informações do local de entrega.
 
    
-Próximas funcionalidades:     
+Próximas funcionalidades: 
+
+  - Disponibilzar na view os locais de entrega que já foram usado pelo cliente;
 
   - Fazer o sistema de vendas no banco de dados;   
   
