@@ -100,7 +100,7 @@ create table local_de_entrega (
     street_number int(7) not null,
     `state` varchar(20) not null,
     city varchar(20) not null,
-    neibhborhood varchar(20) not null,
+    neighborhood varchar(20) not null,
     zipcode int(20) not null
 
 );

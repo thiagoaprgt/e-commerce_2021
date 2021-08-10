@@ -2,9 +2,9 @@
 
     use Thiago_AP\Control\Page;
     use Thiago_AP\Database\Transaction;    
-    use Thiago_AP\Database\Criteria;
+    use Thiago_AP\Database\Criteria;  
     use Thiago_AP\Database\Repository;
-    use Thiago_AP\Pagination\Pagination;
+    use Thiago_AP\Database\Record;
 
 
     class Checkout extends Page {
@@ -31,6 +31,8 @@
 
             $this->payment_method(); 
 
+            
+
             echo $this->template;
 
         }
@@ -39,6 +41,33 @@
         public function local_de_Entrega() {            
 
             $_SESSION['address'] = $_POST;
+
+            try{
+
+                Transaction::open('loja');     
+
+                $local_de_entrega = new Tabela_local_de_entrega;
+
+                $array['id_cliente'] = $_SESSION['id'];
+               
+                foreach($_POST as $key => $value) {
+                    $array["{$key}"] = $value;
+                }
+
+                $local_de_entrega->fromArray($array);
+
+                $local_de_entrega->store();
+                               
+
+                Transaction::close();
+
+            }catch(Exception $e) {
+
+                print $e->getMessage();
+                Transaction::rollback();
+            }
+
+            
             
         }
 
