@@ -211,6 +211,25 @@
 
     }
 
+    .locais_de_entrega_cadastrados {
+        
+        border: solid;
+        margin: 10px 30px 10px 30px;
+
+    }
+
+    .locais_de_entrega_cadastrados  p {
+        
+        text-align: left;        
+                
+    }
+
+    .locais_de_entrega_cadastrados div {
+            
+        display: inline-block;
+        justify-content: center;
+    }
+
 
     form>button {
 

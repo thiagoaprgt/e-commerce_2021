@@ -71,7 +71,6 @@
             
         }
 
-
         public function get_local_de_Entrega() {
 
             if(empty($_SESSION['address'])) {
@@ -105,6 +104,42 @@
 
             }
             
+
+        }
+
+
+        public function locais_de_entrega_Cadastrados() {
+
+            try{
+
+                Transaction::open('loja');
+
+                $criteria = new Criteria;
+                $criteria->add('id_cliente', '=', $_SESSION['id']);
+                $criteria->add('id', '=', $_POST['id_local_de_entrega']);
+
+                $repository = new Repository('Tabela_local_de_entrega');
+                $obj = $repository->load($criteria);    
+
+                $address = $obj[0]->toArray();                
+
+                // array_shift — Retira o primeiro elemento de um array 
+                // essa função será usada para adequar o $_SESSION['address']
+                
+                array_shift($address);
+                array_shift($address);
+
+                $_SESSION['address'] = $address;   
+
+                Transaction::close();
+
+            }catch(Exception $e) {
+
+                print $e->getMessage();
+
+                Transaction::rollback();
+
+            }
 
         }
 

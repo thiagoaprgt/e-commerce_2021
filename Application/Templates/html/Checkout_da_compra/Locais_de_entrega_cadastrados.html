@@ -1,0 +1,27 @@
+<form class="locais_de_entrega_cadastrados" method="post" action="index.php?{authentication}&class=Checkout&method=locais_de_entrega_Cadastrados">
+
+    <div>
+        
+       <p>País: {country}</p>
+
+        <p>Rua: {street}</p>
+
+        <p>Número da rua: {street_number}</p>
+
+        <p>Estado: {state}</p>
+
+        <p>Cidade: {city}</p>
+        
+        <p>Bairro: {neighborhood}</p>
+
+        <p>CEP: {zipcode}</p>
+
+        <input type="hidden" name="id_local_de_entrega" value="{id_local_de_entrega}">
+
+    </div>  
+
+    <button type="submit">Escolher esse local de entrega</button>
+
+
+
+</form>

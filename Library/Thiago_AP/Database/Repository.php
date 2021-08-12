@@ -12,7 +12,7 @@
         
         function __construct($class){
             $this->activeRecord = $class;
-        }
+        }        
 
         function load(Criteria $criteria, array $columns = null) {
             //instancia a instrução de SELECT 
@@ -84,6 +84,9 @@
                 if($result) {
 
                     // percorre os resultados da consulta, retornando um objeto
+                    // o nome da classe do objeto returnado é o nome que está em $this->activeRecord
+                    // fazendo com que se possa usar os metódos do objeto retornado através 
+                    // do objeto da classe Repository
 
                     while($row = $result->fetchObject($this->activeRecord)) {
 
