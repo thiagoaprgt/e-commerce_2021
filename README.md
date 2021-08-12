@@ -58,10 +58,11 @@ Nesse projeto já tem algumas funcionalidades implementadas como:
 
   - Persistência no banco de dados das informações do local de entrega.
 
+  - Os locais de entrega cadastrados no banco de dados do cliente podem ser usados para um preenchimento automático;
    
-Próximas funcionalidades: 
+Próximas funcionalidades:   
 
-  - Disponibilzar na view os locais de entrega que já foram usado pelo cliente;
+  - Botão para remover o cadastro no banco de dados dos locais de entrega do cliente;
 
   - Fazer o sistema de vendas no banco de dados;   
   
