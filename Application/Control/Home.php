@@ -53,7 +53,8 @@
 
                 $repository = new Repository('Cadastro_do_conteudo');
                 $conteudos = $repository->load($criteria);                
-                
+
+                $contents = array();
 
                 if(isset($conteudos)) {
 
