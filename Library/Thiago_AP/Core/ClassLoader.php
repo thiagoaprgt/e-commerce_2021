@@ -168,9 +168,9 @@
 
                 */
 
-                $file = $base_dir
-                        . str_replace('\\', '/', $relative_class)
-                        . '.php';
+                $file = $base_dir . $relative_class . '.php';
+
+                $file = str_replace('\\', '/', $file);
 
                 // se o arquivo mapeado existe, requisite-o
 
