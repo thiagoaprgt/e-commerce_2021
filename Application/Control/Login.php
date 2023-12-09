@@ -30,7 +30,7 @@
 
         public function unregistered_User() {
 
-            echo "<br> Senha ou Login estão errado <br>";
+            echo "<br> Senha ou Login está errado <br>";
 
         }
 
