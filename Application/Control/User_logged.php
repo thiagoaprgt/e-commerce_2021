@@ -40,9 +40,7 @@
 
                 $object = $user_dataset[0];
 
-                echo "O cliente $object->nome foi logado com sucesso !!! <hr>";  
-
-
+                
                 $_SESSION['id'] = $object->id;
 
                 // customer será usado na API do gateway de pagamento da empresa PAGARME
@@ -80,7 +78,7 @@
                 
                 Transaction::close(); 
 
-                header("Location:index.php?class=Home&authentication=$auth");
+                header("Location: index.php?class=Home&authentication=$auth");
 
             }else {
 
