@@ -1,0 +1,5 @@
+Estar na pasta php-pdo_dockerfile dentro do terminal e rodar o comando:
+
+docker build -t php-pdo .
+
+Esse comando irá construir a imagem que será usada pelo arquivo docker-compose.yml

@@ -1,0 +1,44 @@
+# portas "porta do container":"porta da máquina" 
+# /var/www/html
+#para entrar dentro do container do docker: docker exec -it (colocar aqui o container_name) bash
+#para entra no terminal do mysql: mysql -u root -p
+#para entra no terminal do mariadb: mariadb -u root -p
+#lista as redes docker: docker network ls
+#ver os containers que estão dentro de uma rede: docker network inspect (nome da rede)
+
+
+version: '3.7'
+
+services:
+
+  php:    
+    image: php-pdo
+    container_name: php
+    restart: always    
+    ports:
+      - 9000:80
+    working_dir: /var/www/html
+    volumes: 
+      - ./app/e-commerce_2021:/var/www/html
+
+  db:
+
+    image: mariadb
+    container_name: db
+    restart: always
+    ports:
+      - 33060:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: thiago
+      
+
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+networks:
+  backend:
+    driver: "bridge"
