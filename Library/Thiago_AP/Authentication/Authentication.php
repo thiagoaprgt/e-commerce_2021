@@ -18,7 +18,7 @@
             */
 
             $this->log_in_time = time(); 
-            $this->expiration_time = $this->log_in_time + 1800;
+            $this->expiration_time = $this->log_in_time + 10;
 
         }
 
@@ -116,6 +116,19 @@
             return $this->authentication;
                         
 
+        }
+
+        public static function debugger_Authentication(bool $active) {
+            
+            if($active) {
+                print_r([
+                    'current time' => time(),
+                    'expiration time' => $_SESSION['expiration_time'],
+                    'Difference' => $_SESSION['expiration_time'] - time(),
+                    'Authentication token' => $_SESSION['authentication']
+                ]);
+            }
+           
         }
 
         

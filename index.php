@@ -50,6 +50,9 @@
             ob_start(); // inicia o controle de output
 
             
+            Thiago_AP\Authentication\Authentication::debugger_Authentication(false);
+
+            
 
             if(isset($_GET['authentication'])) {
                 

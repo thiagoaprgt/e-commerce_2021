@@ -11,7 +11,11 @@
 
             session_destroy();    
 
-        }        
+        }     
+        
+        public function show() {
+            header("Location:index.php");
+        }
 
     }
 
